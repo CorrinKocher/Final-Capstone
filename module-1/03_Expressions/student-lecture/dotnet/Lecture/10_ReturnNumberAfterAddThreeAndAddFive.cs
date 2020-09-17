@@ -17,7 +17,15 @@ namespace Lecture
         */
         public int ReturnNumberAfterAddThreeAndAddFive(int number, bool addThree, bool addFive)
         {
-             return number;
+            if (addThree == true)
+            {
+                number += 3;
+            }
+            if (addFive == true)
+            {
+                number += 5;
+            }
+            return number;
         }
     }
 }

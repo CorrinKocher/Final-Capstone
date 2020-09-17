@@ -20,8 +20,37 @@ namespace Exercises
          */
         public string AlarmClock(int day, bool vacation)
         {
+            int sun = 0;
+            int mon = 1;
+            int tue = 2;
+            int wed = 3;
+            int thurs = 4;
+            int fri = 5;
+            int sat = 6;
+           
+
+            if(vacation)
+            {
+                if (day == sat || day == sun)
+                {
+                    return "off";
+                }
+                if (day == mon || day == tue || day == wed || day == thurs || day == fri)
+                {
+                    return "10:00";
+                }
+            }
+            else if (day == sat || day == sun)
+            {
+                return "10:00";
+            }
+            if (day == mon || day == tue || day == wed || day == thurs || day == fri)
+            {
+                return "7:00";
+            }
             return "";
         }
+        
 
     }
 }

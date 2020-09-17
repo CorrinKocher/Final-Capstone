@@ -17,7 +17,11 @@ namespace Lecture
         */
         public string ReturnAdultOrMinor(int number)
         {
-            return "TODO";
+            if(number == 18 || number > 18)
+            {
+                return "Adult";
+            }
+            return "Minor";
         }
     }
 }
