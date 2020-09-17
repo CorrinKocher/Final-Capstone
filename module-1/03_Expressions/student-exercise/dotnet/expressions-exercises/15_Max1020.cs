@@ -29,26 +29,27 @@ namespace Exercises
                     if (b > a)
                     {
                         return b;
-                    } return 0;
-
+                    }
+                    if (b == a)
+                    {
+                        return b;
+                    }
                 }
-                
-
-            
-            
-
-                if(a > 20 || a < 10)
-                    {
-                    if (b > 20 || b < 10)
-                    {
-                        return 0;
-                    }
-                    }
-                    return 0;
+                return a;
+            }
+            if (b >= 10 && b <= 20)
+            {
+                return b;
             }
             return 0;
 
 
+
+
+
+                   
+            
+            
         } 
 
     }

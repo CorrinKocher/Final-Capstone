@@ -20,7 +20,7 @@ namespace Exercises
             
             if(outsideMode)
             {
-                if(n < 1)
+                if(n <= 1)
                 {
                     return true;
                 }
