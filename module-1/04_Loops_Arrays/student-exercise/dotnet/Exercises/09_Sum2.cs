@@ -16,7 +16,23 @@ namespace Exercises
          Sum2([1, 1, 1, 1]) → 2
          */
         public int Sum2(int[] nums)
-        {
+        {  int sum = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums.Length < 2)
+                {
+                    sum += nums[i];
+                    
+                    return sum;
+                }
+                if (nums.Length >= 2)
+                {
+                    sum = nums[0] + nums[1];
+
+                    return sum;
+                }
+
+            }
             return 0;
         }
 
