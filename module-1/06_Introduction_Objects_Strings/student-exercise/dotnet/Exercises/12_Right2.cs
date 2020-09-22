@@ -15,9 +15,29 @@ namespace Exercises
          Right2("java") → "vaja"
          Right2("Hi") → "Hi"
          */
-        public string Right2(string str)
+        /* if(str.Length <= 2)
         {
-            return null;
+            return str;
         }
-    }
+        else
+        {
+            string missing2 = str.Substring(2);
+            string first2 = str.Substring(0, 2);
+
+            return missing2 + first2; */
+public string Right2(string str)
+{
+            if (str.Length <= 2)
+            {
+                return str;
+            }
+            else
+            {
+                string lastTwo = str.Substring(str.Length - 2);
+                string firstPart = str.Substring(0, str.Length - 2);
+                return lastTwo + firstPart;
+            }
+                
+}
+}
 }

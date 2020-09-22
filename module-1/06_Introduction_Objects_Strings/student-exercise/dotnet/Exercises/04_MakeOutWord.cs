@@ -19,7 +19,10 @@ namespace Exercises
         public string MakeOutWord(string outword, string word)
         {
 
-            return null;
+            string firstCarrots = outword.Substring(0, 2);
+            string secondCarrots = outword.Substring(2, 2);
+
+            return firstCarrots + word + secondCarrots;
         }
     }
 }

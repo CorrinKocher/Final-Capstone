@@ -17,7 +17,18 @@ namespace Exercises
          */
         public string Left2(string str)
         {
-            return null;
+            if(str.Length <= 2)
+            {
+                return str;
+            }
+            else
+            {
+                string missing2 = str.Substring(2);
+                string first2 = str.Substring(0, 2);
+
+                return missing2 + first2;
+            }
+         
         }
     }
 }

@@ -16,7 +16,14 @@ namespace Exercises
          */
         public string StringTimes(string str, int n)
         {
-            return null;
+            int loopCounter = 0;
+            if(loopCounter <= n)
+            {
+              str = str.Insert(str.Length, str);
+                loopCounter = loopCounter + 1;
+            }
+            return str;
+
         }
     }
 }
