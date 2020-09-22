@@ -16,7 +16,43 @@ namespace Exercises
          */
         public string AltPairs(string str)
         {
-            return null;
+            string result = "";
+            if(string.IsNullOrEmpty(str))
+            {
+                return "";
+            }
+
+            if(str.Length <= 1)
+            {
+                result = str.Substring(0);
+            }
+            else if(str.Length < 4)
+            {
+                result = str.Substring(0, 2);
+            }
+            else if(str.Length >= 4)
+            {
+                for (int i = 0; i < str.Length; i += 4)
+                {
+                    if( i == str.Length -1)
+                    {
+                        result += str.Substring(i, 1);
+                    }
+
+                    else if (i <= str.Length -2)
+                    {
+                        result += str.Substring(i, 1) + str.Substring(i + 1, 1);
+                    }
+
+                    
+                }
+                
+
+            }
+            return result;
+
+
         }
     }
 }
+

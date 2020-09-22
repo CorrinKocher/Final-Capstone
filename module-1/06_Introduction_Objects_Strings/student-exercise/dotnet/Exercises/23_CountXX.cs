@@ -16,7 +16,24 @@ namespace Exercises
          */
         public int CountXX(string str)
         {
-            return 0;
+            int loopCounter = 0;
+            char lastChar = ' ';
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == 'x' && lastChar == 'x')
+                {
+                    loopCounter++;
+                }
+                lastChar = str[i];
+
+            }
+            
+            return loopCounter;
+                
+            
+
+            
         }
     }
 }
