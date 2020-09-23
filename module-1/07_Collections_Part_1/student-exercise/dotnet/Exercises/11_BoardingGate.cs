@@ -20,7 +20,43 @@ namespace Exercises
          */
         public List<int> BoardingGate(List<int> seatNumberList)
         {
-            return null;
+            Queue<int> Range10 = new Queue<int>();
+            Queue<int> Range20 = new Queue<int>();
+            Queue<int> Range30 = new Queue<int>();
+            Queue<int> AllSeats = new Queue<int>();
+            
+
+
+            foreach (int seat in seatNumberList)
+            {
+                if(seat <= 10 && seat >= 1)
+                {
+                    Range10.Enqueue(seat);
+                }
+                else if (seat <= 20 && seat >= 11)
+                {
+                    Range20.Enqueue(seat);
+                }
+                else if (seat <= 30 && seat >= 21)
+                {
+                    Range30.Enqueue(seat);
+                }
+            }
+            foreach (int seat in Range10)
+            {
+                AllSeats.Enqueue(seat);
+            }
+            foreach (int seat in Range20)
+            {
+                AllSeats.Enqueue(seat);
+            }
+            foreach (int seat in Range30)
+            {
+                AllSeats.Enqueue(seat);
+            }
+            List<int> boardingOrder = AllSeats.ToList();
+            return boardingOrder;
+
         }
     }
 }

@@ -16,8 +16,13 @@ namespace Exercises
          */
         public int FindLargest(List<int> integerList)
         {
+            integerList.Sort();
+            if (integerList.Count > 0)
+            {
+                return integerList[integerList.Count - 1];
+            }
             return 0;
-        }
+        } 
 
     }
 }

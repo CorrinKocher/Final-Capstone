@@ -18,7 +18,36 @@ namespace Exercises
          */
         public List<int> InterleaveLists(List<int> listOne, List<int> listTwo)
         {
-            return null;
+            List<int> output = new List<int>();
+            int oneCount = listOne.Count;
+            int twoCount = listTwo.Count;
+            int biggestCount = 0;
+            if (twoCount > oneCount)
+            {
+                biggestCount = twoCount;
+            }
+            else
+            {
+                biggestCount = oneCount;
+            }
+            for (int i = 0; i <biggestCount; i++)
+            {
+                if(listOne.Count > i)
+                {
+                    output.Add(listOne[i]);
+               }
+                if (listTwo.Count > i)
+                {
+                    output.Add(listTwo[i]);
+                }
+
+            } // determine whichlist is shorter, than compare the index spot.
+             //than add the remaining indexes from the longer list to the end. 
+             //query thelength of the lists. 
+            //count -1 vs count vs 1
+
+            return output;
+
         }
     }
 }

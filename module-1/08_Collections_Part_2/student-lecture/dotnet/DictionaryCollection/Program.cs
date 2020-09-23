@@ -18,6 +18,7 @@ namespace DictionaryCollection
             //      | "Simon"  | 72 |
             //      | "Kaylee" | 75 |
             //      | "Inara"  | 73 |
+            Dictionary<string, int> people = new Dictionary<string, int>();
 
             while (input == "yes" || input == "y")
             {
@@ -27,19 +28,25 @@ namespace DictionaryCollection
                 Console.Write("What is the person's height (in inches)?: ");
                 int height = int.Parse(Console.ReadLine());
 
+               
+
                 // 2. Check to see if that name is in the dictionary
-                bool exists = false;  // TODO: change this
+                bool exists = people.ContainsKey(name);  // TODO: change this
 
                 if (!exists)
                 {
                     Console.WriteLine($"Adding {name} with new value.");
+                    //console.writeline("Adding " + name + "with new value.");
+                    // two above lines are the same
                     // 3. Put the name and height into the dictionary
-
+                    people.Add(name, height);
+                    //same as people [name] = height; same as above
                 }
                 else
                 {
                     Console.WriteLine($"Overwriting {name} with new value.");
                     // 4. Overwrite the current key with a new value
+                    people[name] = height;// will add or update the key name's value
                 }
 
                 Console.WriteLine();
@@ -53,19 +60,30 @@ namespace DictionaryCollection
             if (input == "search")
             {
                 Console.Write("Which name are you looking for? ");
-                input = Console.ReadLine();
+                string nameToFind = Console.ReadLine();
 
                 //5. Let's get a specific name from the dictionary
-
+                if (people.ContainsKey(nameToFind))
+                {
+                    Console.WriteLine($"{nameToFind} is {people[nameToFind]} inches tall!");
+                }
+                else
+                {
+                    Console.WriteLine($"{nameToFind} does not exist!");
+                }
+            else if (input == "all")
+            {
+                    Console.WriteLine();
+                    Console.WriteLine(".... printing....");
+            }
 
             }
-            else if (input == "all")
             {
                 Console.WriteLine();
                 Console.WriteLine(".... printing ...");
 
                 //6b. Let's print each item in the dictionary
-
+                PrintDictionary(people);
             }
 
             Console.WriteLine();
@@ -81,6 +99,10 @@ namespace DictionaryCollection
             // 6a.
             // Looping through a dictionary involves using a foreach loop
             // to look at each item, which is a key-value pair
+            foreach (KeyValuePair<string, int> KeyValuePair in database)
+            {
+                Console.WriteLine($"{KeyValuePair} is {KeyValuePair.Value} inches tall");
+            }
         }
     }
 }

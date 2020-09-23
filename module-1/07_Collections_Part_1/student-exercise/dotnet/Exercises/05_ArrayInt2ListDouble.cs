@@ -16,7 +16,22 @@ namespace Exercises
          */
         public List<double> ArrayInt2ListDouble(int[] intArray)
         {
-            return null;
+
+            
+            List<double> convertedArray = new List<double>();
+            
+            
+
+            double newItem = 0.0;
+            foreach (int item in intArray)
+            {
+                
+                newItem = (double)item / 2.0;
+                convertedArray.Add(newItem);
+            }
+
+            
+            return convertedArray;
         }
 
     }
