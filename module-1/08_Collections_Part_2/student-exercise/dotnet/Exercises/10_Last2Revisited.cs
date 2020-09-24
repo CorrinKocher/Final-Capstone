@@ -24,9 +24,34 @@ namespace Exercises
          *
          */
         public Dictionary<string, int> Last2Revisited(string[] words)
-        {   
+        {
+            Dictionary<string, int> ReturnDictionary = new Dictionary<string, int>();
 
-            return null;
+            foreach (string charString in words)
+            {
+                int loopCounter = 0;
+                if (charString.Length >= 3)
+                {
+                    for (int i = 0; i < charString.Length -3; i++)
+                    {
+                       string lastTwo = charString.Substring(charString.Length - 2);
+                       string currentTwo = charString.Substring(i, 2);
+                
+                        if (currentTwo == lastTwo)
+                        {
+                            loopCounter++;
+                            
+                        }
+                       
+                    }
+                    ReturnDictionary[charString] = loopCounter;
+                }
+                ReturnDictionary[charString] = loopCounter;
+
+            }
+            
+            
+            return ReturnDictionary;
         }
     }
 }

@@ -19,7 +19,24 @@ namespace Exercises
          */
         public Dictionary<string, bool> WordMultiple(string[] words)
         {
-            return null;
+            
+            Dictionary<string, Boolean> WordDictionary = new Dictionary<string, Boolean>();
+
+            foreach (string word in words)
+            {
+                if (WordDictionary.ContainsKey(word))
+                {
+                    WordDictionary[word] = true;
+
+                }
+                else
+                {
+                    WordDictionary[word]= false;
+                }
+
+
+            }
+            return WordDictionary;
         }
     }
 }

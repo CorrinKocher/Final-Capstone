@@ -37,31 +37,38 @@ namespace Exercises
         public string AnimalGroupName(string animalName)
         {
             Dictionary<string, string> AnimalGroupName = new Dictionary<string, string>();
-            AnimalGroupName.Add("Rhino", "crash");
-            AnimalGroupName.Add("Giraffe", "tower");
-            AnimalGroupName.Add("Elephant", "herd");
-            AnimalGroupName.Add("Lion", "pride");
-            AnimalGroupName.Add("Crow", "murder");
-            AnimalGroupName.Add("Pigeon", "kit");
-            AnimalGroupName.Add("Flamingo", "pat");
-            AnimalGroupName.Add("Deer", "herd");
-            AnimalGroupName.Add("Dog", "pack");
-            AnimalGroupName.Add("Crocodile", "float");
+            AnimalGroupName.Add("rhino", "Crash");
+            AnimalGroupName.Add("giraffe", "Tower");
+            AnimalGroupName.Add("elephant", "Herd");
+            AnimalGroupName.Add("lion", "Pride");
+            AnimalGroupName.Add("crow", "Murder");
+            AnimalGroupName.Add("pigeon", "Kit");
+            AnimalGroupName.Add("flamingo", "Pat");
+            AnimalGroupName.Add("deer", "Herd");
+            AnimalGroupName.Add("dog", "Pack");
+            AnimalGroupName.Add("crocodile", "Float");
             //Console.WriteLine();
             //Console.WriteLine("Welcome to the Animal Group Name Generator! Please enter an animal name!");
             
-            string requestedAnimal = animalName.ToLower();
-            string value = "";
-            if (AnimalGroupName.ContainsKey(requestedAnimal))
+            if(animalName != null)
             {
-                foreach (KeyValuePair<string, string> kvp in AnimalGroupName)
+                animalName = animalName.ToLower ();
+                if (AnimalGroupName.ContainsKey(animalName))
                 {
-                    value = kvp.Value;
-                   
+                    
+                    return AnimalGroupName[animalName];
+
                 }
-                return value;
+                else
+                {
+                    return "unknown";
+                }
+                
             }
             return "unknown";
+
+
+
         }
     }
 }

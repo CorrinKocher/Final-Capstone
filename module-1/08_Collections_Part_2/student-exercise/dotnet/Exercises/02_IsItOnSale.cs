@@ -51,22 +51,25 @@ namespace Exercises
             ProductSalePercentage.Add("BATH0073", 0.15);
 
             // Now check the Dictionary you just created for the itemNumber
-
-            double value = 0;
-            if (ProductSalePercentage.ContainsKey(itemNumber))
+            
+            if(ProductSalePercentage !=null && itemNumber != "" && itemNumber != null)
             {
-                foreach (KeyValuePair<string, double> kvp in ProductSalePercentage)
-                {   
-                    if(kvp > 0.00)
+                
+                    itemNumber = itemNumber.ToUpper();
+                    if (ProductSalePercentage.ContainsKey(itemNumber))
                     {
-                        value = kvp.Value;
+                        return ProductSalePercentage[itemNumber];
+                    }
+                    else
+                    {
+                        return 0.00;
                     }
                     
-
-                }
-                return value;
-
+                
             }
+            return 0.00;
+
+
         }
     }
 }
