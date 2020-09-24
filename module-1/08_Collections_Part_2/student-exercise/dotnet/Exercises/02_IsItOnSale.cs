@@ -35,16 +35,38 @@ namespace Exercises
         public double IsItOnSale(string itemNumber)
         {
             // First create a Dictionary that holds this data
-                //"KITCHEN4001"-> 0.20
-                //"GARAGE1070"-> 0.15
-                //"LIVINGROOM"-> 0.10
-                //"KITCHEN6073"-> 0.40
-                //"BEDROOM3434"-> 0.60
-                //"BATH0073"-> 0.15
+            //"KITCHEN4001"-> 0.20
+            //"GARAGE1070"-> 0.15
+            //"LIVINGROOM"-> 0.10
+            //"KITCHEN6073"-> 0.40
+            //"BEDROOM3434"-> 0.60
+            //"BATH0073"-> 0.15
+
+            Dictionary<string, double> ProductSalePercentage = new Dictionary<string, double>();
+            ProductSalePercentage.Add("KITCHEN4001", 0.20);
+            ProductSalePercentage.Add("GARAGE1070", 0.15);
+            ProductSalePercentage.Add("LIVINGROOM", 0.10);
+            ProductSalePercentage.Add("KITCHEN6073", 0.40);
+            ProductSalePercentage.Add("BEDROOM3434", 0.60);
+            ProductSalePercentage.Add("BATH0073", 0.15);
 
             // Now check the Dictionary you just created for the itemNumber
 
-            return 0.00;
+            double value = 0;
+            if (ProductSalePercentage.ContainsKey(itemNumber))
+            {
+                foreach (KeyValuePair<string, double> kvp in ProductSalePercentage)
+                {   
+                    if(kvp > 0.00)
+                    {
+                        value = kvp.Value;
+                    }
+                    
+
+                }
+                return value;
+
+            }
         }
     }
 }

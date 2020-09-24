@@ -20,6 +20,8 @@ namespace Exercises
          */
         public Dictionary<string, int> RobPeterToPayPaul(Dictionary<string, int> peterPaul)
         {
+            //int petersCents = peterPaul["Peter"];
+            //   return peterPaul;
             return null;
         }
     }
