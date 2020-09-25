@@ -51,7 +51,7 @@ namespace DeckOfCards
                         // 8. Use a custom constructor
 
                         // 3. Instantiate a new Card instance
-                        Card playingCard = new Card();
+                        Card playingCard = new Card(isFaceUp);
                         playingCard.Value = value;
                         playingCard.Suit = suit;
                        // playingCard.IsFaceUp = isFaceUp;
@@ -74,7 +74,10 @@ namespace DeckOfCards
 
                         foreach(Card card in cards)
                         {
-                            card.Flip();
+                            bool isNowFaceUp = card.Flip();
+
+                            Console.WriteLine("You turn a card so that face up =" + isNowFaceUp);
+                            card.WeCanPassParemetersToMethods(5, 1);
                             //card.IsFaceUp = !card.IsFaceUp;
                         }
                         // 7a. Set IsFaceUp Directly

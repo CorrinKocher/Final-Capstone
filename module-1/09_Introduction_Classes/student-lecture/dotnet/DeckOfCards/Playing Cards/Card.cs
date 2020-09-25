@@ -8,7 +8,15 @@ namespace DeckOfCards.Playing_Cards
     /// This represents a playing card in a deck
     /// </summary>
     public class Card
-    {/// <summary>
+
+     
+    {
+        public Card(bool isFaceUp) // default constructor looks like this but is empty.
+        {
+            this.IsFaceUp = isFaceUp; //Console.WriteLine("The card was created");
+        }
+        
+        /// <summary>
     /// gets or sets the numerical value of the card
     /// </summary>
         public int Value { get; set; }
@@ -22,6 +30,10 @@ namespace DeckOfCards.Playing_Cards
         /// Gets or sets whether or not the card is face up
         /// </summary>
         public bool IsFaceUp { get; private set; }
+        //public Card(bool isFaceUp)
+        //{
+        //    this.IsFaceUp = true; or you can put >>   = isFaceUp;
+        //}
 
 
         /// <summary>
@@ -44,9 +56,14 @@ namespace DeckOfCards.Playing_Cards
         /// <summary>
         /// Flips whether or not the card is face up
         /// </summary>
-        public void Flip()
+        public bool Flip()
         {
             this.IsFaceUp = !this.IsFaceUp;
+            return this.IsFaceUp;
+        }
+        public void WeCanPassParemetersToMethods (int x, int y)
+        {
+            Console.WriteLine(x + y);
         }
     }
 }
