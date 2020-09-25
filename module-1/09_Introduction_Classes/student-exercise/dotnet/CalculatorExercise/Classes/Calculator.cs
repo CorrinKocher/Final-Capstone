@@ -11,7 +11,8 @@ namespace TechElevator.Classes
     /// </summary>
     public class Calculator
     {
-        
-
-    }
+       // public int MathExample (intx, int power)
+       // Math.Pow(x,power) = x raised to the power int)
+    }  // cannot convert double to an int. so cast the double to an int
+     // (int) Math.POW(x, power)
 }
