@@ -15,32 +15,30 @@ namespace TechElevator.Classes
         // Math.Pow(x,power) = x raised to the power int)
         // (int) Math.POW(x, power)
         // cannot convert double to an int. so cast the double to an int
-        private int result = 0;
-        private int addend = 0;
-        private int multiplier = 0;
-        private int exponent = 0;
+        
+     
         public int Result { get; private set; }
 
 
 
         public int Add(int addend)
         {
-            Result = this.result + this.addend;
-            return result;
+            Result = Result + addend;
+            return Result;
         }
         public int Multiply(int multiplier)
         {
-            Result = result * this.multiplier;
-            return result;
+            Result = Result * multiplier;
+            return Result;
         }
         public int Power(int exponent)
 
         {
-            Result = result * result;
+            Result = Result * Result;
             //double x;
             // result = Math.Pow(x, (double)int exponent);
             //return result;
-            return result;
+            return Result;
         }
         public void Reset()
         {
@@ -48,8 +46,8 @@ namespace TechElevator.Classes
         }
         public int Subtract(int subtrahend)
         {
-            Result = this.result - subtrahend;
-            return result;
+            Result = Result - subtrahend;
+            return Result;
         }
 
     }

@@ -90,7 +90,13 @@ namespace DictionaryCollection
             Console.WriteLine("Done...");
 
             //7. Let's get the average height of the people in the dictionary
-
+            int totalHeight = 0;
+            foreach  (int height in people.Values)
+            {
+                totalHeight += height;
+            }
+            int avgHeight = totalHeight / people.Count;
+            Console.WriteLine("our average height is " + avgHeight);
             Console.ReadLine();
         }
 
