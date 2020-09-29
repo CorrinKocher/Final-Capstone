@@ -18,5 +18,6 @@ namespace Lecture.Farming
         {
             // TODO: Implement galloping.
         }
+        public string Color { get; set; }
     }
 }

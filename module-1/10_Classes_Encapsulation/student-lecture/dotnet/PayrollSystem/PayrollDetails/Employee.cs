@@ -22,6 +22,7 @@ namespace PayrollSystem.PayrollDetails
         {
             get
             {
+                
                 return this.firstName;
             }
             set
@@ -58,9 +59,23 @@ namespace PayrollSystem.PayrollDetails
         public void Pay()
         {
             Console.WriteLine("It is payday for " + this.FullName);
-            this.totalIncome += this.Salary;
+            // this.totalIncome += this.Salary;
+            this.Pay(this.Salary / 26.0M);
 
         }
+        public decimal Pay(decimal amount)
+        {
+            decimal amountToDeduct = Employee.CalculateWitholdingAmount(amount);
+           
+            this.totalIncome += amount - amountToDeduct;
+            
+            return this.totalIncome;
+        }
+       
 
+        private static decimal CalculateWitholdingAmount(decimal amount)
+        {
+            return amount * 0.05M;
+        }
     }
 }
