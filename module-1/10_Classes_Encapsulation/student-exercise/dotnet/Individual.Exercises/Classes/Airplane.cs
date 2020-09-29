@@ -14,13 +14,13 @@
 
        public int TotalFirstClassSeats { get; }
 
-        public int BookedFirstclassSeats { get; private set; }
+        public int BookedFirstClassSeats { get; private set; }
 
         public int AvailableFirstClassSeats
         {
             get
             {
-                return TotalFirstClassSeats - BookedFirstclassSeats;
+                return TotalFirstClassSeats - BookedFirstClassSeats;
                
             }
 
@@ -42,7 +42,7 @@
         {
             if(forFirstClass == true && totalNumberOfSeats <= AvailableFirstClassSeats)
             {
-                this.BookedFirstclassSeats += totalNumberOfSeats;
+                this.BookedFirstClassSeats += totalNumberOfSeats;
                 
                     return true;
                 
