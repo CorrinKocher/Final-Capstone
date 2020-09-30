@@ -15,6 +15,9 @@ namespace Lecture
             farm.Add(new Horse());
             farm.Add(new Platypus());
             farm.Add(new Tractor());
+            farm.Add(new CheshireCat());
+            farm.Add(new Griffyn());
+           //farm.Add(new FarmAnimal("Cat"));
             // What happens if he gets a cat? (or a generic animal)
 
             // Changing the time of day changes if animals make noise or sleep

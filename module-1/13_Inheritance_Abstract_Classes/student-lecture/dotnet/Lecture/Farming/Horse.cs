@@ -9,13 +9,8 @@ namespace Lecture.Farming
         {
         }
 
-        public override string MakeSoundOnce(bool isEvening)
+        public override string MakeSound()
         {
-            if (isEvening)
-            {
-                return "Zzzzzzz";
-            }
-
             return "NEIGH";
         }
 
