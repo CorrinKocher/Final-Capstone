@@ -34,6 +34,13 @@ namespace InheritanceLecture
             reserveAuction.PlaceBid(new Bid("Katie", 50000));
 
             // TODO: Add a buyout auction where a high bid can win the auction outright
+            BuyoutAuction buyAuction = new BuyoutAuction();
+            buyAuction.PlaceBid(new Bid("Bruce Wayne", 42));
+            buyAuction.PlaceBid(new Bid("Clark Kent", 250));
+            buyAuction.PlaceBid(new Bid("Bruce Wayne", 1000000));
+            buyAuction.PlaceBid(new Bid("Clark Kent", 1000001));
+            
+
 
             Console.ReadLine();
         }

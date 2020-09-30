@@ -80,6 +80,11 @@ namespace InheritanceLecture.Auctioneering
         /// </summary>
         public bool HasEnded { get; private set; }
 
+        protected void EndAuction()
+        {
+            Console.WriteLine("The auction is over!");
+            this.HasEnded = true;
+        }
         /// <summary>
         /// Places a Bid on the Auction
         /// </summary>
@@ -87,6 +92,11 @@ namespace InheritanceLecture.Auctioneering
         /// <returns>True if the new bid is the current winning bid</returns>
         public virtual bool PlaceBid(Bid offeredBid)
         {
+            if(this.HasEnded)
+            {
+                Console.WriteLine("The Auction is currently closed");
+                return false;
+            }
             // Print out the bid details.
             Console.WriteLine($"{offeredBid.Bidder} bid {offeredBid.BidAmount.ToString("C")}");
 
