@@ -6,26 +6,26 @@ namespace TDD
 {
     public class RefactorMe
     {
-        public string FrontTimes(string str, int n)
+        public string FrontTimes(string input, int timesToRepeat)
         {
-            string myEpicString = "";
+            string result = "";
 
-            if (str.Length <= 3)
-            {
-                for (int i = 0; i < n; i++)
+            const int MaxCharacters = 3;
+            
+                for (int i = 0; i < timesToRepeat; i++)
                 {
-                    myEpicString += str;
+                    if(input.Length < MaxCharacters)
+                    {
+                        result += input;
+                    }
+                    else
+                    {
+                        result += input.Substring(0, MaxCharacters);
+                    }
+                   
                 }
-                return myEpicString;
-            }
-            else
-            {
-                for (int i = 0; i < n; i++)
-                {
-                    myEpicString += str.Substring(0, 3);
-                }
-                return myEpicString;
-            }
+                return result;
+            
         }
     }
 }
