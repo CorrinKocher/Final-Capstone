@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lecture.Farming
 {
-    class Griffyn : FarmAnimal
+    public class Griffyn : FarmAnimal
     {
         public Griffyn() : base("GRIFFYN")
         {

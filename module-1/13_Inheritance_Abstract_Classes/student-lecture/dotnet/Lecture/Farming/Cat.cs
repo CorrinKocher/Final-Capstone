@@ -15,7 +15,7 @@ namespace Lecture.Farming
        
         
     }
-    public class CheshireCat : Cat
+    public sealed class CheshireCat : Cat
     {
         public override string MakeSound()
         {
@@ -26,4 +26,8 @@ namespace Lecture.Farming
             
         }
     }
+    //public class PurpleCheshireCat : CheshireCat
+    //{
+
+    //}
 }
