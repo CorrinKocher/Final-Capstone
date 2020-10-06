@@ -11,11 +11,18 @@ namespace Exercises.Tests
     public class KataFizzBuzzTests
     {
         [TestMethod]
-        public void Number3ReturnsFizz()
+        [DataRow(0, "0")]
+        [DataRow(3, "Fizz")]
+        [DataRow(5, "Buzz")]
+        [DataRow(15, "FizzBuzz")]
+        [DataRow(101,"")]
+        [DataRow(-1, "")]
+        public void Number3ReturnsFizz(int number, string expected)
         {
-            int number = 3;
+            
             KataFizzBuzz fizz = new KataFizzBuzz();
             string result = fizz.ReturnFizzBuzz(number);
+
         }
         
     }
