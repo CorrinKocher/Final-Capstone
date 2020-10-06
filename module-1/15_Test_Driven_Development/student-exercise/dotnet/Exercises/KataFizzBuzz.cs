@@ -10,21 +10,32 @@ namespace Exercises
     {
         public string ReturnFizzBuzz(int number)
         {
+            const int numberFive = 5;
+            const int numberThree = 3;
+            bool hasFive = number.ToString().Contains(numberFive.ToString());
 
 
-            if (number <= 100 && number >= 1 && number % 3 == 0 && number % 5 == 0)
+            if (number <= 100 && number >= 1)
             {
-                return "FizzBuzz";
-            }
-            else if (number <= 100 && number >= 1 && number % 3 == 0)
+
+                if(number % 3 == 0 && number % 5 == 0 || number.ToString().Contains(numberFive.ToString()) && number.ToString().Contains(numberThree.ToString()))
+                {
+                    return "FizzBuzz";
+                }
+            } 
+            else if (number <= 100 && number >= 1 && hasFive == false)
             {
-                return "Fizz";
+                if(number % 3 == 0 || number.ToString().Contains(numberThree.ToString()) || number == numberThree)
+                {
+                    return "Fizz";
+                }
             }
-            else if (number <= 100 && number >= 1 && number % 5 == 0)
+                
+            else if (number <= 100 && number >= 1 && number % 5 == 0 || number.ToString().Contains(numberFive.ToString()) || number == numberThree)
             {
                 return "Buzz";
             }
-            else if (number >= 1 && number <= 100)
+            else if (number >= 1 && number <= 100 )
             {
                 return number.ToString();
             }
@@ -32,6 +43,7 @@ namespace Exercises
             {
                 return "";
             }
+            return "";
         }
     }
 }
