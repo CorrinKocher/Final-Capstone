@@ -2,12 +2,16 @@
 
 namespace WordSearch
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        
+        public void Main(string[] args)
         {
-            WordSearchApp app = new WordSearchApp();
-            app.Run();
+            Console.WriteLine();
+            Console.WriteLine(" Please provide a search string and a file system for the text file.");
+            
+           // WordSearchApp app = new WordSearchApp();
+           // app.Run();
         }
     }
 }
