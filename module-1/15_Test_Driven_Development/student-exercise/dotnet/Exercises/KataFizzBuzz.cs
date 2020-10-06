@@ -13,37 +13,34 @@ namespace Exercises
             const int numberFive = 5;
             const int numberThree = 3;
             bool hasFive = number.ToString().Contains(numberFive.ToString());
+            bool hasThree = number.ToString().Contains(numberThree.ToString());
 
-
-            if (number <= 100 && number >= 1)
+            if ( number < 1 || number > 100)
             {
+                return "";
+            }
 
-                if(number % 3 == 0 && number % 5 == 0 || number.ToString().Contains(numberFive.ToString()) && number.ToString().Contains(numberThree.ToString()))
-                {
-                    return "FizzBuzz";
-                }
-            } 
-            else if (number <= 100 && number >= 1 && hasFive == false)
+            if((number % 3 == 0 && number % 5 == 0) || (hasFive && hasThree))
             {
-                if(number % 3 == 0 || number.ToString().Contains(numberThree.ToString()) || number == numberThree)
+                return "FizzBuzz";
+            }
+            
+            else if (!hasFive)
+            {
+                if(number % 3 == 0 || hasThree )
                 {
                     return "Fizz";
                 }
             }
                 
-            else if (number <= 100 && number >= 1 && number % 5 == 0 || number.ToString().Contains(numberFive.ToString()) || number == numberThree)
+            else if ( number % 5 == 0 || hasFive)
             {
                 return "Buzz";
             }
-            else if (number >= 1 && number <= 100 )
-            {
-                return number.ToString();
-            }
-            else
-            {
-                return "";
-            }
-            return "";
+            return number.ToString();
+          
+            
+           
         }
     }
 }

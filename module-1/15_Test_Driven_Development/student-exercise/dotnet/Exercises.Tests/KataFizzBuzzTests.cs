@@ -17,9 +17,9 @@ namespace Exercises.Tests
         [DataRow(15, "FizzBuzz")]
         [DataRow(101,"")]
         [DataRow(-1, "")]
-        [DataRow(133, "Fizz")]
-        [DataRow(152, "Buzz")]
-        [DataRow(1531,"FizzBuzz")]
+        [DataRow(133, "")]
+        [DataRow(152, "")]
+        [DataRow(1531,"")]
         public void Number3ReturnsFizz(int number, string expected)
         {
             
