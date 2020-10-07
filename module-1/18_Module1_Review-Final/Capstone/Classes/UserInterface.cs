@@ -13,9 +13,19 @@ namespace Capstone.Classes
     public class UserInterface
     {
         // We'll want to create some of our objects here
+        private QuestionManager questions;
+        private FileAccess files;
+
+        public UserInterface()
+        {
+            this.questions = new QuestionManager();
+            this.files = new FileAccess();
+        }
 
         public void RunInterface()
         {
+            files.LoadQuestions(this.questions);
+
             bool done = false;
             while (!done)
             {
@@ -31,10 +41,40 @@ namespace Capstone.Classes
                 Console.WriteLine();
 
                 // TODO: Get a value from the user and respond appropriately
-                Console.ReadLine();
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        this.DisplayInterviewQuestions();
+                        break;
+
+                    case "3":
+                        this.files.WriteScores(this.questions);
+                        Console.WriteLine("Your scores have been saved!");
+                        break;
+
+                    case "4":
+                        done = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("I don't understand. Try a number 1 - 4");
+                        break;
+                }
             }
 
             Console.WriteLine("Thank you for coming to Sally's for all your interview question needs");
+        }
+
+        private void DisplayInterviewQuestions()
+        {
+            Console.WriteLine("Our current questions are: ");
+
+            foreach (InterviewQuestion question in this.questions.AllQuestions)
+            {
+                Console.WriteLine(question); // will call question.ToString()
+            }
         }
     }
 }
