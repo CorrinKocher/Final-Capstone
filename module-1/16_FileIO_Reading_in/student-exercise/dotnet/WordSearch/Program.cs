@@ -5,13 +5,13 @@ namespace WordSearch
     public class Program
     {
         
-        public void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine();
-            Console.WriteLine(" Please provide a search string and a file system for the text file.");
+            //Console.WriteLine();
+           // Console.WriteLine(" Please provide a search string and a file system for the text file.");
             
-           // WordSearchApp app = new WordSearchApp();
-           // app.Run();
+           WordSearchApp app = new WordSearchApp();
+           app.Run();
         }
     }
 }

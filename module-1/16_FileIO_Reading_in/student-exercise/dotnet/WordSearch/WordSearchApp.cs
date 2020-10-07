@@ -15,12 +15,13 @@ namespace WordSearch
         public void Run()
         {
             //1. Ask the user for the search string            
-            Console.WriteLine("Please provide a text file to search for");
+            Console.WriteLine("Please provide a phrase to search for");
             string searchPhrase = Console.ReadLine();
             //2. Ask the user for the file path
             Console.WriteLine();
             Console.WriteLine("Please provide the path to the file");
             string filePath = Console.ReadLine();
+            // Path.Combine(filePath, searchPhrase)
 
             Console.WriteLine();
             Console.WriteLine("Should the search be case sensitive? Y/N");
@@ -28,55 +29,59 @@ namespace WordSearch
             //3. Open the file
             using (StreamReader reader = new StreamReader(filePath))
             {
-                int lineCounter = 1;
+                int lineCounter = 0;
 
-                if (isSensitive.Contains("N"))
+                if (isSensitive.ToLower().Contains("n"))
                 {
                     //4. Loop through each line in the file
                     while (!reader.EndOfStream) //&& reader.ReadLine() != null
                     {
+                        lineCounter++;
+                        string line = reader.ReadLine();
 
-                        string line = lineCounter++ + ")" + reader.ReadLine();
+                        if (line.ToLower().Contains(searchPhrase.ToLower()))
                         {
-                            if (line.Contains(searchPhrase))
-                            {
-                                continue;
-                                //line = line.Replace(this.WordToCensor, this.CensoredText);
-                                //5. If the line contains the search string, print it out along with its line number
-                                //Console.WriteLine(line + "," + lineCounter);
-                            }
-                            Console.WriteLine(line);
+                            //line = line.Replace(this.WordToCensor, this.CensoredText);
+                            //5. If the line contains the search string, print it out along with its line number
+                            Console.WriteLine(line + ") " + lineCounter);
                         }
+                        
+
 
                         // See Part 2 in the Readme.md file for additional changes
                     }
                 }
 
-                else if (isSensitive.Contains("Y"))
-                    searchPhrase = searchPhrase.ToLower();
+                else
+
                 {
+
                     //4. Loop through each line in the file
                     while (!reader.EndOfStream) //&& reader.ReadLine() != null
                     {
-                        string line = lineCounter++ + ")" + reader.ReadLine();
+                        lineCounter++;
+                        string line = reader.ReadLine();
+
+                        if (line.Contains(searchPhrase))
                         {
-                            if (line.Contains(searchPhrase))
-                            {
-                                continue;
-                                //line = line.Replace(this.WordToCensor, this.CensoredText);
-                                //5. If the line contains the search string, print it out along with its line number
-                                //Console.WriteLine(line + "," + lineCounter);
-                            }
-                            Console.WriteLine(line);
+
+                            Console.WriteLine(lineCounter + ") " + line);
+                            //continue;
+                            //line = line.Replace(this.WordToCensor, this.CensoredText);
+                            //5. If the line contains the search string, print it out along with its line number
+
+
                         }
+
+
 
                         // See Part 2 in the Readme.md file for additional changes
                     }
                 }
-                   
+
             }
         }
     }
-   
-    
+
+
 }

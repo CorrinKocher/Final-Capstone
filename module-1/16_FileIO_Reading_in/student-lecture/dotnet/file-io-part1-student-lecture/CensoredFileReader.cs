@@ -22,31 +22,47 @@ namespace FileInputLecture
 
         public void CensorFile(string filePath)
         {
-            // For practice, it might be nice to validate filepath
-
-            Console.WriteLine("Censoring the contents of " + filePath);
-
-            // Add a using statement that creates a StreamReader pointing at the correct file
-            using (StreamReader reader = new StreamReader(filePath))
+            try
             {
-                // While we haven't reached the end of the file...
-                while( !reader.EndOfStream)
+
+                // For practice, it might be nice to validate filepath
+
+                Console.WriteLine("Censoring the contents of " + filePath);
+
+                // Add a using statement that creates a StreamReader pointing at the correct file
+                using (StreamReader reader = new StreamReader(filePath))
                 {
-                    // Read in the next line from the file
-                    string line = reader.ReadLine();
-                    // If the line needs censoring,
-                    if(line.Contains(this.WordToCensor))
+                
+                
+                    // While we haven't reached the end of the file...
+                    while( !reader.EndOfStream)
                     {
-                        // ... Censor the line as needed by replacing WordToCensor with CensoredText
-                        line = line.Replace(this.WordToCensor, this.CensoredText);
+                        // Read in the next line from the file
+                        string line = reader.ReadLine();
+                        // If the line needs censoring,
+                        if(line.Contains(this.WordToCensor))
+                        {
+                            // ... Censor the line as needed by replacing WordToCensor with CensoredText
+                            line = line.Replace(this.WordToCensor, this.CensoredText);
+
+                            // ... Print the censored line to the Console
+                            Console.WriteLine(line);
+                        }
+
+                        
                     }
 
-                    // ... Print the censored line to the Console
-                    Console.WriteLine(line);
                 }
 
             }
-
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("Could not find the file " + filePath);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("an error occured trying to read from the file: " + filePath);
+            }
 
             Console.WriteLine("Done Censoring");
         }
