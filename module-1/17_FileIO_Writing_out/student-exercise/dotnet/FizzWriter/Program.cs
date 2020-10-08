@@ -23,15 +23,19 @@ namespace FizzWriter
                     {
                         writer.WriteLine("FizzBuzz");
                     }
-                    if (i % 3 == 0)
+                    else if (i % 3 == 0)
                     {
                         writer.WriteLine("Fizz");
                     }
-                    if (i % 5 == 0)
+                    else if (i % 5 == 0)
                     {
                         writer.WriteLine("Buzz");
                     }
-                    writer.WriteLine(i);
+                    else
+                    {
+                        writer.WriteLine(i);
+                    }
+                    
 
                 }
                
