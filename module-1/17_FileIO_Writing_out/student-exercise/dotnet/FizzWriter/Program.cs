@@ -1,15 +1,45 @@
 ﻿using System;
+using System.IO;
+using System.Collections;
+using System.Text;
 
 namespace FizzWriter
 {
-    class Program
+    public class Program
     {
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+            string myPath = GetReadmeDir();
+            string newFile = Path.Combine(myPath, "FizzBuzz.txt");
+            bool shouldAppend = false;
+
+            using (StreamWriter writer = new StreamWriter(newFile, shouldAppend))
+            {
+                for (int i = 1; i < 301; i++)
+                {
+                    if (i % 3 == 0 && i % 5 == 0)
+                    {
+                        writer.WriteLine("FizzBuzz");
+                    }
+                    if (i % 3 == 0)
+                    {
+                        writer.WriteLine("Fizz");
+                    }
+                    if (i % 5 == 0)
+                    {
+                        writer.WriteLine("Buzz");
+                    }
+                    writer.WriteLine(i);
+
+                }
+               
+
+            }
         }
 
-        /// <summary>
+
         /// Gets the full path to the directory with the readme file
         /// </summary>
         /// <returns>The full path to the directory with the readme file</returns>
