@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WordSearch;
 
-namespace WordSearch.ChildFolder
-{
-    class ChildClass
+
+namespace XYZ
+    class ChildClass : Test
     {
     }
 }

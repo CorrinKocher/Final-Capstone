@@ -7,6 +7,7 @@ namespace FileInputLecture
     {
         static void Main(string[] args) // What can we do with these args?
         {
+            //string dir = Environment.CurrentDirectory;
             // It'd be nice if we didn't have to escape this string...
             string myPath = @"C:\Users\Student";
             

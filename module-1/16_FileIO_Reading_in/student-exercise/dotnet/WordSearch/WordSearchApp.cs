@@ -43,7 +43,7 @@ namespace WordSearch
                         {
                             //line = line.Replace(this.WordToCensor, this.CensoredText);
                             //5. If the line contains the search string, print it out along with its line number
-                            Console.WriteLine(line + ") " + lineCounter);
+                            Console.WriteLine(lineCounter + ") " + line);
                         }
                         
 

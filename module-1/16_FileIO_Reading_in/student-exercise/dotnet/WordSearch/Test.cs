@@ -4,7 +4,11 @@ using System.Text;
 
 namespace WordSearch
 {
-    class Test
+    public class Test
     {
+        public void DoSomething()
+        {
+            return;
+        }
     }
 }
