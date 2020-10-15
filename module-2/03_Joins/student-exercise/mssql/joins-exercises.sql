@@ -122,30 +122,25 @@ JOIN address ON store.address_id = address.address_id
 
 -- 13. The first and last name of the top ten customers ranked by number of rentals 
 -- (#1 should be “ELEANOR HUNT” with 46 rentals, #10 should have 39 rentals)
---select customer.first_name, customer.last_name
---FROM customer
---JOIN rental on customer.customer_id = rental.customer_id
-
---select customer.first_name, customer.last_name
---FROM rental
---JOIN customer on rental.customer_id = customer.customer_id
-
---GROUP BY customer.customer_id;
-
---select customer.first_name, *
---FROM customer
---WHERE customer.first_name = 'Eleanor' --148
-
---select *
---FROM rental
---WHERE rental.customer_id = '148'
 
 
-SELECT count
+SELECT customer.first_name, customer.last_name
+FROM customer
+WHERE customer.customer_id
+IN(
+SELECT TOP (10) rental.customer_id --count(*) AS 'Number  Of Rentals'
 from rental
 JOIN customer on rental.customer_id = customer.customer_id
 GROUP BY rental.customer_id
-ORDER BY count(rental.customer_id)
+ORDER BY count(rental.customer_id) DESC)
+
+
+
+SELECT TOP (10) rental.customer_id, customer.first_name, customer.last_name
+from rental
+JOIN customer on rental.customer_id = customer.customer_id
+GROUP BY rental.customer_id, customer.first_name, customer.last_name
+ORDER BY count(rental.customer_id) DESC
 
 -- 14. The first and last name of the top ten customers ranked by dollars spent 
 -- (#1 should be “KARL SEAL” with 221.55 spent, #10 should be “ANA BRADLEY” with 174.66 spent)
@@ -153,7 +148,22 @@ ORDER BY count(rental.customer_id)
 -- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), and average sale of each store.
 -- (NOTE: Keep in mind that an employee may work at multiple stores.)
 -- (Store 1 has 7928 total rentals and Store 2 has 8121 total rentals)
+SELECT *
+FROM payment
 
+SELECT payment.
+FROM payment
+IN(
+SELECT staff.store_id
+FROM staff
+JOIN payment on staff.staff_id = payment.staff_id
+GROUP BY staff.store_id
+ORDER BY staff.store_id)
+
+
+SELECT address.address AS 'Address', COUNT(inventory.inventory_Id) as 'Total Rentals'
+from store
+join
 -- 16. The top ten film titles by number of rentals
 -- (#1 should be “BUCKET BROTHERHOOD” with 34 rentals and #10 should have 31 rentals)
 
