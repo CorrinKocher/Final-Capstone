@@ -2,42 +2,150 @@
 
 -- 1. All of the films that Nick Stallone has appeared in
 -- (30 rows)
+SELECT film.title
+FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON film_actor.actor_id = actor.actor_id
+WHERE actor.first_name = 'Nick'
+AND actor.last_name = 'Stallone';
 
 -- 2. All of the films that Rita Reynolds has appeared in
 -- (20 rows)
-
+SELECT film.title
+FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON film_actor.actor_id = actor.actor_id
+WHERE actor.first_name = 'Rita'
+AND actor.last_name = 'Reynolds';
 -- 3. All of the films that Judy Dean or River Dean have appeared in
 -- (46 rows)
+SELECT *
+FROM actor
+WHERE actor.first_name = 'River'
+
+SELECT film.title
+FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON film_actor.actor_id = actor.actor_id
+WHERE actor.actor_id = '35'
+OR actor.actor_id = '143';
 
 -- 4. All of the the ‘Documentary’ films
 -- (68 rows)
+SELECT film.title
+FROM film_category
+JOIN film ON film_category.film_id = film.film_id
+WHERE film_category.category_id = '6';
+
+SELECT *
+FROM category
 
 -- 5. All of the ‘Comedy’ films
 -- (58 rows)
-
+SELECT film.title
+FROM film_category
+JOIN film ON film_category.film_id = film.film_id
+WHERE film_category.category_id = '5';
 -- 6. All of the ‘Children’ films that are rated ‘G’
 -- (10 rows)
-
+SELECT film.title
+FROM film_category
+JOIN film ON film_category.film_id = film.film_id
+WHERE film_category.category_id = '3'
+AND film.rating = 'G';
 -- 7. All of the ‘Family’ films that are rated ‘G’ and are less than 2 hours in length
 -- (3 rows)
+SELECT film.title
+FROM film_category
+JOIN film ON film_category.film_id = film.film_id
+WHERE film_category.category_id = '8'
+AND film.rating = 'G'
+AND film.length < 120;
 
+select*
+FROM ACTOR
 -- 8. All of the films featuring actor Matthew Leigh that are rated ‘G’
 -- (9 rows)
-
+SELECT film.title
+FROM film_actor
+JOIN actor ON film_actor.actor_id = actor.actor_id
+JOIN film on film_actor.film_id = film.film_id
+WHERE film.rating = 'G'
+AND actor.actor_id = '103';
 -- 9. All of the ‘Sci-Fi’ films released in 2006
 -- (61 rows)
-
+SELECT film.title
+FROM film_category
+JOIN film ON film_category.film_id = film.film_id
+WHERE film_category.category_id = '14'
+AND film.release_year = 2006;
 -- 10. All of the ‘Action’ films starring Nick Stallone
 -- (2 rows)
 
+
+SELECT film.title
+FROM film_category
+JOIN film on film_category.film_id = film.film_id
+join film_actor on film.film_id = film_actor.film_id
+WHERE film_actor.actor_id ='44'
+AND film_category.category_id ='1';
 -- 11. The address of all stores, including street address, city, district, and country
 -- (2 rows)
 
+SELECT address.address, city, district, country
+FROM store
+JOIN address ON address.address_id = store.address_id
+JOIN city ON city.city_id = address.city_id
+JOIN country ON city.country_id = country.country_id
+
+SELECT address.address, city, district, country -- how does it know where you are pulling city and district from???
+FROM store --store tells you where you are matching the address ID but it isnt where you are displaying FROM. I thought thats what from meant.
+JOIN address ON address.address_id = store.address_id --how can you join address to itself??? I thought you were join one table to another, and telling it what criteria youare matching on 
+JOIN city ON city.city_id = address.city_id --so instead you are just saying join one peice of info from address to the entire row on city when these two fields match
+JOIN country ON city.country_id = country.country_id  -- saying take everything from the row in country that has country id that matches but which country
+
+
+--WHERE address.address_id = '1'
+--OR address.address_id = '2';
+
+SELECT *
+FROM store
+
 -- 12. A list of all stores by ID, the store’s street address, and the name of the store’s manager
 -- (2 rows)
+SELECT store.store_id, address.address, staff.first_name, staff.last_name
+FROM store
+JOIN Staff on store.manager_staff_id = staff.staff_id
+JOIN address ON store.address_id = address.address_id
+
+
 
 -- 13. The first and last name of the top ten customers ranked by number of rentals 
 -- (#1 should be “ELEANOR HUNT” with 46 rentals, #10 should have 39 rentals)
+--select customer.first_name, customer.last_name
+--FROM customer
+--JOIN rental on customer.customer_id = rental.customer_id
+
+--select customer.first_name, customer.last_name
+--FROM rental
+--JOIN customer on rental.customer_id = customer.customer_id
+
+--GROUP BY customer.customer_id;
+
+--select customer.first_name, *
+--FROM customer
+--WHERE customer.first_name = 'Eleanor' --148
+
+--select *
+--FROM rental
+--WHERE rental.customer_id = '148'
+
+
+SELECT count
+from rental
+JOIN customer on rental.customer_id = customer.customer_id
+GROUP BY rental.customer_id
+ORDER BY count(rental.customer_id)
 
 -- 14. The first and last name of the top ten customers ranked by dollars spent 
 -- (#1 should be “KARL SEAL” with 221.55 spent, #10 should be “ANA BRADLEY” with 174.66 spent)
