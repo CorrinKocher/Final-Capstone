@@ -145,25 +145,32 @@ ORDER BY count(rental.customer_id) DESC
 -- 14. The first and last name of the top ten customers ranked by dollars spent 
 -- (#1 should be “KARL SEAL” with 221.55 spent, #10 should be “ANA BRADLEY” with 174.66 spent)
 
+select TOP (10) SUM(payment.amount) AS 'total spent by customer', payment.customer_id
+FROM payment
+GROUP BY payment.customer_id
+ORDER BY [total spent by customer] DESC
+
 -- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), and average sale of each store.
 -- (NOTE: Keep in mind that an employee may work at multiple stores.)
 -- (Store 1 has 7928 total rentals and Store 2 has 8121 total rentals)
+SELECT address.address, store.store_id
+FROM store
+JOIN address ON store.address_id = address.address_id
+JOIN ;
+
+
+
 SELECT *
 FROM payment
 
-SELECT payment.
-FROM payment
-IN(
-SELECT staff.store_id
-FROM staff
-JOIN payment on staff.staff_id = payment.staff_id
-GROUP BY staff.store_id
-ORDER BY staff.store_id)
+SELECT *
+FROM rental
 
+SELECT *
+FROM store
 
-SELECT address.address AS 'Address', COUNT(inventory.inventory_Id) as 'Total Rentals'
-from store
-join
+SELECT *
+FROM inventory
 -- 16. The top ten film titles by number of rentals
 -- (#1 should be “BUCKET BROTHERHOOD” with 34 rentals and #10 should have 31 rentals)
 

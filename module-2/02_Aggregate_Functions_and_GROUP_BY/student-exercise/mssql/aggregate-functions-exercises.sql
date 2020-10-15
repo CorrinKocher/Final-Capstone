@@ -13,11 +13,10 @@
 -- The results should be ordered alphabetically by state name and then by city 
 -- name. 
 -- (19 rows)
-SELECT * --need help
+SELECT CONCAT(city.name, ', ',  city.district) AS 'name_and_state', city.population
 FROM city
-WHERE district = 'Pennsylvania', 'West Virginia', 'Kentucky', 'Indiana', 'Michigan'
-ORDER BY
-GROUP BY
+WHERE district = 'Pennsylvania' OR district = 'West Virginia' OR  district ='Kentucky' OR district = 'Indiana' OR district = 'Michigan'
+ORDER BY city.district, city.name
 
 -- 2. The name, country code, and region of all countries in Africa.  The name and
 -- country code should be returned as a single column named country_and_code 
@@ -30,9 +29,14 @@ WHERE country.continent ='Africa'
 -- 3. The per capita GNP (i.e. GNP multipled by 1000000 then divided by population) of all countries in the 
 -- world sorted from highest to lowest. Recall: GNP is express in units of one million US Dollars 
 -- (highest per capita GNP in world: 37459.26)
-SELECT (country.gnp*1000000)/country.population AS 'percapitaGNP' -- need help
+SELECT (country.gnp*1000000)/country.population AS 'per capita GNP' -- need help
 FROM country
-ORDER BY [percapitaGNP] DESC;
+WHERE country.gnp IS NOT NULL 
+AND country.gnpold IS NOT NULL
+ORDER BY [per capita GNP] DESC;
+
+SELECT country.gnp, country.gnpold, *
+FROM country
 
 -- 4. The average life expectancy of countries in South America.
 -- (average life expectancy in South America: 70.9461)
