@@ -12,6 +12,11 @@ SELECT p.title, d.name
 FROM position p 
 INNER JOIN department d on p.department = d.id
 
+SELECT *
+FROM position
+
+SELECT * 
+FROM Employee
 
 -- firstname, lastname, title, and department name of all assigned employees
 
@@ -25,7 +30,12 @@ INNER JOIN department d on p.department = d.id
 
 SELECT e.firstname, e.lastname, p.title
 FROM employee e
-LEFT OUTER JOIN position p on e.position = p.id
+LEFT OUTER JOIN position p on e.position = p.id;
+
+SELECT e.firstname, e.lastname, p.title
+FROM employee e
+RIGHT OUTER JOIN position p on e.position = p.id;
+
 --LEFT JOIN position p on e.position = p.id
 
 

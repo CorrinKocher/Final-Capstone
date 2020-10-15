@@ -120,15 +120,12 @@ ORDER BY country.lifeexpectancy DESC
 -- the world ordered by the absolute value of the difference. Display both 
 -- difference and absolute difference.
 -- (smallest difference: 1.00, 1.00, "Ecuador")
-SELECT ABS(country.ABSDifference)--- why wont it recognize the column name i created? I know I need to make one pos and one NEG, but I cant even get the ABS to work
-FROM country
-Group BY name
-WHERE country.ABSDifference -- what am I doing wrong here? 
-IN(
-SELECT SUM(country.gnp-country.gnpold) AS 'ABSDifference'
-FROM country
-GROUP BY name)
 
+SELECT name, gnp, gnpold, gnpold-gnp AS Difference, ABS(gnpold-gnp) AS 'Absolute Value'
+FROM country
+WHERE gnp IS NOT NULL 
+AND gnpold IS NOT NULL
+ORDER BY [Absolute Value] ASC
 
 -- 17. The average population of cities in each country (hint: use city.countrycode)
 -- ordered from highest to lowest.

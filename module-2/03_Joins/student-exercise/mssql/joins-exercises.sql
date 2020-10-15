@@ -156,7 +156,8 @@ ORDER BY [total spent by customer] DESC
 SELECT address.address, store.store_id
 FROM store
 JOIN address ON store.address_id = address.address_id
-JOIN ;
+JOIN inventory ON store.store_id = inventory.store_id
+JOIN payment ON inventory.
 
 
 
