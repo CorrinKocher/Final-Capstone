@@ -1,13 +1,24 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using FluentAssertions;
+using RestSharp;
 
 namespace AuctionApp.Tests
 {
     [TestClass]
     public class APIServiceTests
     {
-        APIService api = new APIService();
+        private readonly RestClient client;
+        private readonly string BASE_URL;
+        
+        private readonly APIService api = new APIService("00162");
+
+
+        public APIServiceTests()
+        {
+            this.client = new RestClient();
+            this.BASE_URL = "https://te-mockauction-server.azurewebsites.net/students/" + laptopNumber + "/";
+        }
 
         [TestMethod]
         public void GetAllAuctions_ExpectList()
