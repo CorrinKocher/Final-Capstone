@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HTTP_Web_Services_GET_lecture.Data;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,7 +11,15 @@ namespace HTTP_Web_Services_GET_lecture.ApiClients
         public string GetRecommendedDestination()
         {
             // TODO: Call out to http://swapi.dev/api/planets/5/
-            throw new NotImplementedException();
+            RestClient client = new RestClient();
+            RestRequest request = new RestRequest("http://swapi.dev/api/planets/2/");
+            IRestResponse<Planet> result = client.Get<Planet>(request);
+
+            Planet destination = result.Data;
+
+            return destination.Name;
+
+
         }
-    }
+    }   
 }

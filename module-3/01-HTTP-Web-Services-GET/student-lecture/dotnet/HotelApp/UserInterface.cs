@@ -6,7 +6,7 @@ namespace HTTP_Web_Services_GET_lecture
 {
     public class UserInterface
     {
-        private readonly HotelsApi hotelsApi = new HotelsApi("REPLACE WITH YOUR LAPTOP #");
+        private readonly HotelsApi hotelsApi = new HotelsApi("00162");
         private readonly TravelApi travelApi = new TravelApi();
 
         public void DisplayMainMenu()
