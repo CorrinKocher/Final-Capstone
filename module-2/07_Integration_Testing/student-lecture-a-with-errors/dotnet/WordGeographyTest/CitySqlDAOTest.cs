@@ -37,33 +37,64 @@ namespace WordGeographyTest
 
                     countBefore = (int)command.ExecuteScalar();
 
+                }
 
-                    CitySqlDAO dao = new CitySqlDAO(connectionString);
-                    City city = new City();
-                    city.Name = "Johntown";
-                    city.CountryCode = "GBR";
-                    city.Population = 4;
-                    city.District = "England";
+                CitySqlDAO dao = new CitySqlDAO(connectionString);
+                City city = new City();
+                city.Name = "Johntown";
+                city.CountryCode = "GBR";
+                city.Population = 4;
+                city.District = "England";
 
-                    //Act
-                    dao.AddCity(city);
+                //Act
+                dao.AddCity(city);
 
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
 
-                    command = new SqlCommand(
-                        "SELECT count(*) FROM city;", conn);
+                    conn.Open();
+                    SqlCommand command = new SqlCommand(
+                         "SELECT count(*) FROM city;", conn);
 
                     countAfter = (int)command.ExecuteScalar();
-
-
-                    //Assert
-                    Assert.AreEqual(countBefore + 1, countAfter);
                 }
+
+                //Assert
+                Assert.AreEqual(countBefore + 1, countAfter);
             }
             finally
             {
                 transaction.Dispose();
             }
         }
+        [TestMethod]
 
+        public void GetCitiesByCountryCodeTest()
+        {
+            transaction = new TransactionScope()
+
+                try
+            {
+                //ARRANGE
+                //create a country
+
+                //SQlConenction
+                //SQLcommand
+                //executenonquery
+
+                //creat a city
+                //SQlConenction
+                //SQLcommand
+                //executenonquery
+
+                //ACT
+                //create dap fpr CitySQLDAO
+                //callthe getcitebycountrycode on the dao
+
+                //ASSERT
+                //check that the city we created is in the result of the getcitiesbycountrycode
+
+            }
+        }
     }
 }
