@@ -11,15 +11,13 @@ namespace AuctionApp
         private readonly string BASE_URL;
         
 
-        public APIService (string laptopNumber)
+        public APIService ()
         {
             this.client = new RestClient();
-            this.BASE_URL = "https://te-mockauction-server.azurewebsites.net/students/" +laptopNumber+ "/";
+            this.BASE_URL = "https://te-mockauction-server.azurewebsites.net/students/00162/";
         }
 
-        public APIService()
-        {
-        }
+        
 
         public List<Auction> GetAllAuctions()
         {
@@ -39,16 +37,17 @@ namespace AuctionApp
 
         public List<Auction> GetAuctionsSearchTitle(string searchTitle)
         {
-            RestRequest request = new RestRequest(this.BASE_URL + "auctions/" + searchTitle);
+            RestRequest request = new RestRequest(this.BASE_URL + "auctions?title_like=" + searchTitle);
 
             IRestResponse<List<Auction>> response = client.Get<List<Auction>>(request);
+
 
             return response.Data;
         }
 
         public List<Auction> GetAuctionsSearchPrice(double searchPrice)
         {
-            RestRequest request = new RestRequest(this.BASE_URL + "auctions?currentBid=" + searchPrice);
+            RestRequest request = new RestRequest(this.BASE_URL + "auctions?currentBid_lte=" + searchPrice);
 
             IRestResponse<List<Auction>> response = client.Get<List<Auction>>(request);
 

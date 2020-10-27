@@ -8,17 +8,7 @@ namespace AuctionApp.Tests
     [TestClass]
     public class APIServiceTests
     {
-        private readonly RestClient client;
-        private readonly string BASE_URL;
-        
-        private readonly APIService api = new APIService("00162");
-
-
-        public APIServiceTests()
-        {
-            this.client = new RestClient();
-            this.BASE_URL = "https://te-mockauction-server.azurewebsites.net/students/" + laptopNumber + "/";
-        }
+        APIService api = new APIService();
 
         [TestMethod]
         public void GetAllAuctions_ExpectList()

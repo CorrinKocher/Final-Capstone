@@ -5,7 +5,7 @@ namespace AuctionApp
 {
     public class UserInterface
     {
-        private readonly APIService api = new APIService("00162");
+        private readonly APIService api = new APIService();
 
         public void ShowMainMenu()
         {
