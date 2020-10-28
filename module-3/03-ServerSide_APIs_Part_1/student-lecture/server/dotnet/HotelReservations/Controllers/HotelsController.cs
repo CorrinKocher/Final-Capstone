@@ -11,7 +11,7 @@ namespace HotelReservations.Controllers
     {
         private readonly IHotelDao _hotelDao;
 
-        public HotelsController(IHotelDao hotelDao)
+        public HotelsController(IHotelDao hotelDao,IReservationDao reservationDao)
         {
             _hotelDao = hotelDao;
         }
@@ -21,6 +21,23 @@ namespace HotelReservations.Controllers
         {
             return _hotelDao.List();
         }
+
+        [HttpGet ("hotels/filter")]
+        public List<Hotel> FilterHotels(string city, string state)
+        {
+            if (!string.IsNullOrEmpty(city))
+            {
+                return this._hotelDao.GetHotelsByCity(city);
+            }
+
+            if (!string.IsNullOrEmpty(state))
+            {
+                return this._hotelDao.GetHotelsByState(state);
+            }
+
+            return this._hotelDao.List();
+        }
+
 
         [HttpGet("hotels/{id}")]
         public Hotel GetHotel(int id)
@@ -34,6 +51,13 @@ namespace HotelReservations.Controllers
 
             return null;
         }
+        [HttpGet("hotels/{hotelID}/reservations")]
+
+        public List<Reservation> GetReservations(int hotelId)
+        {
+            return reservationDao.FindByHotel(hotelId);
+        }
+
 
 
 

@@ -130,7 +130,7 @@ namespace AuctionApp
 
         public Auction UpdateAuction(Auction auctionToUpdate)
         {
-            RestRequest request = new RestRequest(this.API_URL + "reservations/" + auctionToUpdate.Id);
+            RestRequest request = new RestRequest(this.API_URL + "/" + auctionToUpdate.Id);
 
             request.AddJsonBody(auctionToUpdate);
 
@@ -153,7 +153,7 @@ namespace AuctionApp
 
         public bool DeleteAuction(int auctionId)
         {
-            RestRequest request = new RestRequest(this.API_URL + "auctions/" + auctionId);
+            RestRequest request = new RestRequest(this.API_URL + "/" + auctionId);
             IRestResponse response = this.client.Delete(request);
             if (response.ResponseStatus != ResponseStatus.Completed)
             {
