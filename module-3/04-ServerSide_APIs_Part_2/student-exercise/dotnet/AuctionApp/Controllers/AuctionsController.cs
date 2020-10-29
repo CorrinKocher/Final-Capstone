@@ -45,5 +45,14 @@ namespace AuctionApp.Controllers
             }
         }
 
+        [HttpPost("auctions")]
+
+        public ActionResult<Auction> CreateAuction(Auction newAuction)
+        {
+            Auction result = this.dao.Create(newAuction);
+
+            return Created("auctions/" + result.Id, result);
+        }
+
     }
 }

@@ -102,10 +102,31 @@ namespace HotelReservations.Controllers
         }
 
         // Handle creating a reservation on /reservations POST
+        [HttpPost("reservations")]
+        public ActionResult<Reservation> AddReservation(Reservation newReservation)
+        {
+            Reservation result = this.reservationDao.Create(newReservation);
 
+            return Created("reservations/" + result.Id, result);
+
+        }
         // Handle updating a reservation on /reservations/{id} PUT
+        [HttpPut("reservations/{id}")]
+        public Reservation UpdateReservation(int id, Reservation reservation)
+        {
+            //TODO: Validate rservation ID matches
+            //TODO: check that reservation exists
+            return this.reservationDao.Update(id, reservation);
+        }
 
         // Handle deleting a reservation on /reservations/{id} DELETE
 
+        [HttpDelete("reservations/{id}")]
+        public void DeleteReservation(int id)
+        {
+            //TODO
+
+            this.reservationDao.Delete(id);
+        }
     }
 }

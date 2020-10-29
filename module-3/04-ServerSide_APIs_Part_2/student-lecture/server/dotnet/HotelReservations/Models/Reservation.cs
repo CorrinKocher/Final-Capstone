@@ -26,5 +26,10 @@ namespace HotelReservations.Models
             CheckoutDate = checkoutDate;
             Guests = guests;
         }
+        public Reservation()
+        {
+
+        }
+
     }
 }
