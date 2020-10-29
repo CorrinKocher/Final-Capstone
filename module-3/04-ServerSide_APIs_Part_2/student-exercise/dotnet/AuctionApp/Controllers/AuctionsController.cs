@@ -45,14 +45,41 @@ namespace AuctionApp.Controllers
             }
         }
 
-        [HttpPost("auctions")]
+        [HttpPost]
 
-        public ActionResult<Auction> CreateAuction(Auction newAuction)
+        public ActionResult<Auction> Create(Auction newAuction)
         {
             Auction result = this.dao.Create(newAuction);
+            
 
             return Created("auctions/" + result.Id, result);
         }
 
+
+        [HttpPut("{id}")]
+
+        public ActionResult<Auction> UpdateAuction(int id, Auction auctionToUpdate)
+        {
+            Auction existing = this.dao.Get(id);
+            if (existing == null)
+            {
+                return NotFound("Could not find the specified auction");
+            }
+            return this.dao.Update(id, auctionToUpdate);
+        }
+
+        [HttpDelete("{id}")]
+
+        public ActionResult<Auction> DeleteAuction(int id)
+        {
+            Auction existing = this.dao.Get(id);
+            if (existing == null)
+            {
+                return NotFound("Could not find the specified auction");
+            }
+            this.dao.Delete(id);
+
+            return NoContent();
+        }
     }
 }
