@@ -16,11 +16,15 @@ namespace AuctionApp.Controllers
             this.dao = auctionDao;
         }
 
-        //[HttpGet]
-        //public List<Auction> GetAuctions()
-        //{
-        //    return this.dao.List();
-        //}
+        [HttpPost]
+
+        public ActionResult<Auction> Create(Auction newAuction)
+        {
+            Auction result = this.dao.Create(newAuction);
+
+
+            return Created("auctions/" + result.Id, result);
+        }
 
         [HttpGet("{id}")]
         public Auction GetAuctionByID(int id)
