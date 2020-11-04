@@ -112,21 +112,33 @@ namespace HotelReservations.Controllers
         }
         // Handle updating a reservation on /reservations/{id} PUT
         [HttpPut("reservations/{id}")]
-        public Reservation UpdateReservation(int id, Reservation reservation)
+        public ActionResult<Reservation> UpdateReservation(int id, Reservation reservation)
         {
             //TODO: Validate rservation ID matches
             //TODO: check that reservation exists
+            Reservation existing = this.reservationDao.Get(id);
+            if (existing == null)
+            {
+                return NotFound("Could not find the specified reservation");
+            }
+
             return this.reservationDao.Update(id, reservation);
         }
 
         // Handle deleting a reservation on /reservations/{id} DELETE
 
         [HttpDelete("reservations/{id}")]
-        public void DeleteReservation(int id)
+        public ActionResult DeleteReservation(int id)
         {
             //TODO
-
+            Reservation existing = this.reservationDao.Get(id);
+            if (existing == null)
+            {
+                return NotFound("Could not find the specified reservation");
+            }
             this.reservationDao.Delete(id);
+
+            return NoContent();
         }
     }
 }

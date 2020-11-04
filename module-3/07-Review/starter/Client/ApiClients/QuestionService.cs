@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using RestSharp.Authenticators;
 using SallyClient.Data;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,18 @@ namespace SallyClient.ApiClients
             this.BASE_URL = AuthService.API_BASE_URL + "questions";
 
             this.client = new RestClient();
+        }
+
+        public void UpdateToken (string token)
+        {
+            if(String.IsNullOrEmpty(token))
+            {
+                this.client.Authenticator = null;
+            }
+            else
+            {
+            this.client.Authenticator = new JwtAuthenticator(token);
+            }
         }
 
         public List<API_Question> GetAllQuestions()

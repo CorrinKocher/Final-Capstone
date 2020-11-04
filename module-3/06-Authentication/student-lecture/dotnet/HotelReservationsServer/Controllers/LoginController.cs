@@ -8,6 +8,7 @@ namespace HotelReservations.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class LoginController : ControllerBase
     {
         private readonly ITokenGenerator tokenGenerator;

@@ -138,7 +138,9 @@ namespace HotelReservationsClient
                 switch (response.StatusCode)
                 {
                     // TODO: Handle 401 Unauthorized status code
-
+                    case System.Net.HttpStatusCode.Unauthorized:
+                        Console.WriteLine("you are not authenticated, Please log in first.");
+                        break;
                     // TODO: Handle 403 Forbidden status code
 
                     default:
@@ -177,6 +179,8 @@ namespace HotelReservationsClient
             {
                 // TODO: Set the response's token into the Rest Client for subsequent requests
 
+                client.Authenticator = new JwtAuthenticator(response.Data.Token);
+
                 return true;
             }
         }
@@ -184,6 +188,7 @@ namespace HotelReservationsClient
         public void Logout()
         {
             // TODO: Clear out any authentication from the Rest client
+            client.Authenticator = null;
         }
     }
 }

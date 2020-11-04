@@ -24,7 +24,7 @@ namespace HotelReservations
 
             // Dependency Injection configuration
             services.AddScoped<IHotelDao>(m => new HotelDao());
-            services.AddScoped<IReservationDao>(m => new ReservationDao());
+            services.AddScoped<IReservationDao>(m => new ReservationDao());           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
