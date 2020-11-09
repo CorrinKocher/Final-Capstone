@@ -1,0 +1,34 @@
+
+    
+        html {
+            background-color:FFFFFC;
+            color: rgb(204, 194, 194);
+        }
+        p{
+            color: 155, 246, 255;
+        }
+        input{
+            margin-bottom:20px;
+        }
+        table{
+            background-color: 9BF6FF;
+            padding:10px;
+        }
+        .free{
+            color: greenyellow;
+            font-size:18pt;
+        }
+        th{
+            color:A0C4FF;
+            font-size: 24pt;
+        }
+        td{
+            font-style: italic;
+            color:9BF6FF;
+        }
+        #btnSubmit{
+            padding: 20px;
+            background-color:darkslateblue;
+            color: yellow;
+        }
+  

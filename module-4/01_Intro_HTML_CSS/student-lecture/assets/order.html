@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now</title>
+    <link href="yuck.css" rel="stylesheet"/>
+</head>
+
+<body>
+    <h1>Order Now</h1>
+    <p> What would you like to order?</p>
+    <h2></h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Entree</td>
+                <td>Burnt Pizza</td>
+                <td class="free"> Free</td>
+            </tr>
+            <tr>
+                <td>Appetizer</td>
+                <td>Chicken</td>
+                <td>4.00</td>
+            </tr>
+            <tr>
+                <td>Dessert </td>
+                <td>Tiremisu</td>
+                <td>5.00</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <h2>Order Form</h2>
+    <form action="http://google.com" method="GET">
+        <div>
+            <label for="nameOfFood">Name Of Food:</label>
+            <input type="text" id="nameOfFood" name="nameOfFood" placeholder="Enter a type of food">
+        </div>
+        <label for="quantity">Amount of item:</label>
+        <input type="number" id="quantity" name="quantity" min="1">
+        <input type="submit" value="Order Now" id="btnSubmit">
+    </form>
+</body>
+
+</html>

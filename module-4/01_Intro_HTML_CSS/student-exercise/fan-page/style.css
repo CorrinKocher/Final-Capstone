@@ -1,0 +1,45 @@
+html {
+    background-color: grey;
+    color: white;
+}
+ 
+    head{
+        font-size: large;
+    }
+    
+    header{
+        text-align: center;
+    }
+
+    
+    table{
+        text-align: center;
+        padding: 20px;
+    }
+    .TableHeader{
+        color: rgb(187, 177, 161);
+        font-size: x-large;
+        padding-right: 35px;
+        padding-left:35px;
+        
+    }
+    .gallery{
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+    }
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      .quote{
+        font-style: italic;
+        line-height: 20px;
+      }
+      .subheader{
+          text-decoration: underline white;
+      }
+      .links{
+          font-size: 10pt;
+      }
