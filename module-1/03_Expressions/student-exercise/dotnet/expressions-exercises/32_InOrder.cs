@@ -23,16 +23,37 @@ namespace Exercises
                 {
                     return true;
                 }
-            }
-            if( b > a)
-            {
-                if(c > b)
+                else
                 {
-                    return true;
-                } 
+                    return false;
+                }
+            }
+            else if (b > a && c > b) 
+            {
+                return true;
+            }
+            else
+            {
                 return false;
             }
-            return false;
+              
+
+            //if(bOk)
+            //{
+            //    if(c > b)
+            //    {
+            //        return true;
+            //    }
+            //}
+            //if( b > a)
+            //{
+            //    if(c > b)
+            //    {
+            //        return true;
+            //    } 
+            //    return false;
+            //}
+            //return false;
 
             
         }
