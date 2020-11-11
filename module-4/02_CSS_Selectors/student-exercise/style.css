@@ -15,3 +15,11 @@ ul {
   margin: 0;
   padding: 0;
 }
+/* unsure if this is right */
+aside {
+  position: fixed;
+  width: 200px;
+  border-right: 1px blue;   
+  height: 100vh;
+  padding: 0 20px;
+}
