@@ -19,7 +19,73 @@ ul {
 aside {
   position: fixed;
   width: 200px;
-  border-right: 1px blue;   
+  border-right: 1px solid rgba(0, 173, 238, 0.4);   
   height: 100vh;
   padding: 0 20px;
+}
+
+aside img {
+  display: block; 
+  height: 120px;   
+  margin: 0 auto;
+ }
+
+main {
+  display: block;
+  margin-left: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+aside li {
+  list-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom:rgba(0, 173, 238, 0.4);
+  margin: 10px auto;
+  padding: 0 0 10px 0;
+  width: 80%;
+  line-height: 2;
+  }
+
+  aside li > a { /*hover- figure out how */ 
+    font-weight: heavy;
+    color: #00ADEE;
+    text-decoration: none;
+  }
+
+  header {
+    height: 120px;
+    
+  }
+
+  header > img {
+  height: 80%;
+  }
+
+  .banner {
+    display: block;
+    width: 100%;
+  }
+
+section > div {
+  display: inline-block;
+  width: 33%;
+  padding-right: 20px;
+  margin: 20px;
+}
+
+section > h2 {
+  color: #8CC36F;
+}
+
+h2 > i {
+  margin-right: 10px;
+}
+
+#what-we-do, #our-work {
+border-right: 1px solid rgba(170, 239, 135, 0.8);
+}
+#contact-us {
+  padding-left: 20px;
 }
