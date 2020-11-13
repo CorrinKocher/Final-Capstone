@@ -1,17 +1,15 @@
 * {
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     box-sizing: border-box;
+       ;
 }
 
 html {
     font-size: 16px;
 }
 
-body {
-    margin-left: 8%;
-    margin-right: 8%;
-    background-color: rgba(192, 192, 192, 0.1);
-}
+
+
 
 h1 {
     font-size: 2em;
@@ -50,3 +48,174 @@ header img {
 #student-picture img{
     border-radius: 50%;
 }
+
+body {
+    margin-left: 8%;
+    margin-right: 8%;
+    background-color: rgba(192, 192, 192, 0.1);    
+}  
+#main-grid{
+    display: grid;  
+    grid-template-areas:
+    "HeadLine" 
+    "StudentPicture"
+    "StudentQuote" 
+    "StudentProfile" 
+    "StudentContact"
+    "ExperienceGrid";         
+}
+
+#experience-grid {
+    display: grid;  
+    grid-template-areas:
+    "ExperienceCode" 
+    "ExperienceDatabase"
+    "ExperienceWeb" 
+    "ExperienceDesign";
+}
+#headline {
+    grid-area: HeadLine;
+}
+
+#student-picture {
+    grid-area: StudentPicture;
+    text-align: center;
+}
+
+#student-quote {
+    grid-area: StudentQuote;
+}
+
+#student-profile {
+    grid-area: StudentProfile;
+}
+#student-contact {
+    grid-area: StudentContact;
+    text-align: center;
+}
+
+#experience-code {
+    grid-area: ExperienceCode;
+}
+
+#experience-database {
+    grid-area: ExperienceDatabase;
+}
+
+#experience-web {
+    grid-area: ExperienceWeb;
+}
+
+#experience-design {
+    grid-area: ExperienceDesign;
+}
+@media screen and (min-width:1024px) {
+    #main-grid {
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+    "HeadLine HeadLine StudentPicture"
+    "StudentQuote StudentQuote StudentPicture"
+    "StudentProfile StudentProfile StudentContact"
+    "ExperienceGrid ExperienceGrid ExperienceGrid"; 
+    row-gap: 20px;
+    column-gap: 50px;
+    align-items: center;  
+    }
+    
+    #experience-grid {
+        grid-area: ExperienceGrid;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "ExperienceCode ExperienceDatabase"
+        "ExperienceWeb ExperienceDesign";
+        row-gap: 20px;
+        column-gap: 50px;    
+    }
+
+} 
+
+@media screen and (max-width: 1023px) {
+    #main-grid {
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+        "HeadLine StudentPicture"
+        "StudentQuote StudentPicture"
+        "StudentProfile StudentContact"
+        "ExperienceGrid ExperienceGrid ExperienceGrid"; 
+        row-gap: 20px;
+        column-gap: 50px;
+        align-items: center;  
+    }
+    #experience-grid {
+        grid-area: ExperienceGrid;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "ExperienceCode ExperienceDatabase"
+        "ExperienceWeb ExperienceDesign";
+        row-gap: 20px;
+        column-gap: 50px;    
+    }
+
+}
+
+@media screen and (max-width: 882px) {
+    #main-grid {
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+        "HeadLine StudentPicture"
+        "StudentQuote StudentPicture"
+        "StudentProfile StudentContact"
+        "ExperienceGrid ExperienceGrid ExperienceGrid"; 
+        row-gap: 20px;
+        column-gap: 50px;
+        align-items: center;  
+    }
+    #experience-grid {
+        grid-area: ExperienceGrid;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "ExperienceCode ExperienceDatabase"
+        "ExperienceWeb ExperienceDesign";
+        row-gap: 20px;
+        column-gap: 50px;    
+    }
+
+}
+@media screen and (max-width: 768px) {
+    #main-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "HeadLine"
+         "StudentPicture"
+        "StudentQuote"
+         "StudentPicture"
+        "StudentProfile"
+        "StudentContact"
+        "ExperienceGrid"; 
+        row-gap: 20px;
+        column-gap: 50px;
+        align-items: center;  
+    }
+    #experience-grid {
+        grid-area: ExperienceGrid;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "ExperienceCode"
+        "ExperienceWeb"
+         "ExperienceDatabase"
+         "ExperienceDesign";
+        row-gap: 20px;
+        column-gap: 50px;    
+    }
+
+}
+
+
+
+
+
+
