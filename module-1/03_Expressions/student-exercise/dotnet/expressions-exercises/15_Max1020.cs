@@ -19,15 +19,15 @@ namespace Exercises
         {
 
 
-            //if(a < 10 & a > 20 & b < 10 & b > 20)
+            //if((a < 10 || a > 20) && (b < 10 || b > 20)) //John would get rid of cases where you wouldnt compare the two values
             //{
             //    return 0;
             //}
-            //else if(a >= 10 &  a <= 20 && b >= 10 & b <= 20 && a > b)
+            //else if(a >= 10 &  a <= 20 && b >= 10 & b <= 20 && a > b)  // than check if only A is out of the range. Than check if only b is out of the range.
             //{
             //    return a;
             //}
-            //else if (a >= 10 & a <= 20 && b >= 10 & b <= 20 && a < b)
+            //else if (a >= 10 & a <= 20 && b >= 10 & b <= 20 && a < b) // than, finally compare A and B
             //{
             //    return b;
             //}

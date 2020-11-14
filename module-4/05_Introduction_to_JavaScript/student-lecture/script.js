@@ -10,6 +10,7 @@
 
 console.debug("Debug message from our JavaScript file!");
 console.log("Log message from our JavaScript file!");
+//console.batman('Hello Bruce');
 console.info("Info message from our JavaScript file!");
 console.warn("Warning message from our JavaScript file!");
 console.error("Error message from our JavaScript file!");
@@ -38,10 +39,28 @@ console.error("Error message from our JavaScript file!");
  */
 function variables() {
   // TODO: Declares a variable where the value cannot be changed
+  const dayOfWeek = 'Friday';
   // TODO: Declares a variable those value can be changed
+  let currentMinute = 55;
+  currentMinute = 56;
+  var currentHour = 10;
+  console.info('The current day is ', dayOfWeek);
+  console.info('The current minute is ', currentMinute);
+  console.info('currentHour');
   // TODO: Declares a variable that will always be an array
   // TODO: Demonstrate console logging
+  const myArray = [1,2,3];
+console.debug('My array!', myArray);
+myArray.push(42);
+
+if(true){
+  console.log('This is true');
 }
+if(1) {
+  console.log('This is true');
+}
+}
+
 
 /**
  * Functions can also accept parameters.
