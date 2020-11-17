@@ -2,7 +2,7 @@
  * All named functions will have the function keyword and
  * a name followed by parentheses.
  * 
- * @returns {number} 1
+ * @returns {Number} 1
  */
 function returnOne() {
   return 1;
@@ -15,9 +15,11 @@ function returnOne() {
  * Also, we don't *have* to return anything from the actual function. This will result in returning "undefined"
  *
  * @param {any} value the value to print to the console
+ * *@return {Boolean}
  */
 function printToConsole(value) {
   console.log(value);
+  return true;
 }
 
 /**
@@ -26,17 +28,28 @@ function printToConsole(value) {
  * @param {number} firstParameter the first parameter to multiply
  * @param {number} secondParameter the second parameter to multiply
  */
-
+function multiplyTogether (firstParameter, secondParameter) {
+ /*if(firstParemeter === undefined) {
+   first = 0;
+ }
+ if(secondParameter === undefined) {
+   second = 0;
+ }*/
+  return firstParameter * second;
+  Parameter;
+}
 
 
 /**
  * This version makes sure that no parameters are ever missing.
  * Call this function multiplyNoUndefined
  *
- * @param {number} [firstParameter=0] the first parameter to multiply
- * @param {number} [secondParameter=0] the second parameter to multiply
+ * @param {number} [firstParameter=0] the first parameter to multiply (defaults to zero)
+ * @param {number} [secondParameter=0] the second parameter to multiply (defaults to zero)
  */
- 
+ function multiplyNoUndefined(firstParameter=0, secondParameter=0) {
+   return firstParameter * secondParameter;
+ }
 
 
 /**
@@ -45,7 +58,22 @@ function printToConsole(value) {
  * @param {...any} inputValues the items to log. Can be empty or many many items long
  */
 
+function logAllParameters(... inputValues) {
+  for (let i = 0; i < inputValues.length; i++) {
+    console.log(inputValues[i]);
+    
+  }
+}
+function logAllParametersOldWay() {
+  const inputValues = arguments;
 
+  console.log(arguments);
+
+  for (let i = 0; i < inputValues.length; i++) {
+    console.log(inputValues[i]);
+    
+  }
+}
  
 // FLOW AND SCOPE
 
@@ -110,7 +138,10 @@ function createSentenceFromUser(name, age, listOfQuirks = [], separator = ', ') 
  * @returns {number} sum of all the numbers
  */
 function sumAllNumbers(numbersToSum) {
+  let total = 0;
+  numbersToSum.forEach(num => total += num);
 
+  return total;
 }
 
 /**
@@ -132,7 +163,7 @@ function sumAllNumbersUsingReduce(numbersToSum) {
  * @returns {number[]} the multiplied numbers
  */
 function multiplyAll(numbersToMultiply, multiplier) {
-  
+  numbersToMultiply.map(num => num * multiplier);
 }
 
 /**
@@ -164,3 +195,7 @@ function isEven(number) {
 function findFirstEvenNumber(numbers) {
   
 }
+const mathHelpers = {
+firstEven: findFirstEvenNumber,
+
+};
