@@ -96,7 +96,11 @@ function resetFormValues() {
 // LECTURE STARTS HERE ---------------------------------------------------------------
 
 // TODO: Only call initialize when the DOM is ready
-initialize();
+document.addEventListener('DOMContentLoaded', event =>{
+  console.log('DOM Ready', event)
+  initialize();
+  
+})
 
 function initialize() {
   // set the product reviews page title
@@ -111,18 +115,46 @@ function initialize() {
   // -----------------------------------------------
 
   // TODO: When the user clicks on btnToggleForm, call showHideForm
-
+  const btnToggleForm = document.querySelector('#btnToggleForm');
+  btnToggleForm.addEventListener('click', e => {
+    console.log('Button clicked', e);
+    showHideForm();
+    e.stopPropagation();
+  })
   // TODO: When the user clicks btnSaveReview, call saveReview
-
+  const btnSaveReview = document.querySelector('#btnSaveReview');
+  btnSaveReview.addEventListener('click', e =>  {
+    e.preventDefault();
+    saveReview();
+    e.preventDefault();
+  });
   // -----------------------------------------------
 
   // TODO: When the user double clicks the description paragraph, call showDescriptionEdit and pass it the event
-
+const descParagraph = document.querySelector('p.description');
+descParagraph.addEventListener('dblclick', e => {
+  showDescriptionEdit(e);  
+})
   // TODO: When the user's mouse leaves the input with an ID of inputDesc, call exitDescriptionEdit without saving
-
+const descInput = document.querySelector('#inputDesc');
+descInput.addEventListener('mouseLeave', e => {
+  console.debug('Mouse left input', e);
+  exitDescriptionEdit(e, false);
+})
   // TODO: When the user presses a key on the input with an ID of inputDesc, 
-  // check for enter and escape and call exitDescriptionEdit
 
+  // check for enter and escape and call exitDescriptionEdit
+  descInput.addEventListener('keyup', e => {
+    console.debug('Key Up', e);
+    switch (e.key) {
+      case "Enter":
+        exitDescriptionEdit(e, true);
+        break;
+      case "Escape":
+        exitDescriptionEdit(e, false);
+        break;
+    }
+  })
   // ------------------------------------------------
 
   // TODO: Add a click listener for when the user clicks the body element
@@ -134,13 +166,29 @@ function initialize() {
  */
 function saveReview() {
   // Get the value of the name, title, review, and rating
+  const nameInput = document.querySelector('#name');
+  const name = nameInput.value;
 
+  console.log('The name is ' + name);
+
+  const title = document.querySelector('#title').value;
+  const review = document.querySelector('#review').value;
+  const rating = document.querySelector('#rating').value;
   // Create a new review object with these values for reviewer, title, review, and rating
+  const newReview = {
+    reviewer: name,
+    title: title,
+    review: review,
+    rating: rating,
+  };
 
+  console.debug('Adding review ', newReview);
   // Add the new object to reviews
+  reviews.push(newReview);
+  displayReview(newReview);
 
   // Call displayReview with the new review as a parameter
-
+  showHideForm();
   // Call showHideForm to toggle the form visibility
 }
 
@@ -168,17 +216,18 @@ function showDescriptionEdit(event) {
  * @param {Event} event the event object representing the description we're editing
  * @param {Boolean} save should we save the description text
  */
-function exitDescriptionEdit(event, save) {
-  const target = null; // TODO: This comes from the event
+function exitDescriptionEdit(event, shouldSave) {
+  const input = event.target; // TODO: This comes from the event
 
-  if (!target) return; // this line can go once target is set
+  const desc = input.previousElementSibling;
 
-  const desc = target.previousElementSibling;
-
+  
   // TODO: If we're saving, get the new value and set that into description and desc
-  if (save) {
+  if (shouldSave) {
+    description = input.value;
+    desc.innerText = description;
   }
 
-  target.classList.add('d-none');
+  input.classList.add('d-none');
   desc.classList.remove('d-none');
 }

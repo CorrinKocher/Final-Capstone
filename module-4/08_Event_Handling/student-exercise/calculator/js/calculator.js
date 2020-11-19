@@ -73,26 +73,58 @@ function clear() {
 }
 
 // add event listener for when the DOM is loaded
-document.addEventListener('ThisIsNotTheRightEventPleaseChangeIt', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
   // set the variable called display (defined on line 1 above) equal to the display element
   // HINT: use its id 'display' to get a reference to it
-
+  display = document.querySelector('#display');
   // get a reference to all of the numbers
-  // loop over each of the numbers
+  let numbers = document.querySelectorAll('.number');
+  
+  // loop over each of the numbers  
+  numbers.forEach(number => {
+    
+    number.addEventListener('click', e => {
+      number.value = e.target.value;
+      clickNumber(e);
+    })
+  });
   // add a click event listener to each number to call the function clickNumber and pass in the click event
 
   // get a reference to the decimal point button
+  let decimal = document.querySelector('.decimal');
   // add a click event listener to call the function clickNumber and pass in the click event
-
+  decimal.addEventListener('click', e => {
+    decimal.value = e.target.value;
+    clickNumber(e);
+  })
   // get a reference to the all clear button
+  let allClear = document.querySelector('.all-clear');
+  
   // add a click event listener to call the function clear  
-
+  allClear.addEventListener('click', e => {
+    allClear.value = e.target.value;
+    clear();
+  })
   // get a reference to all of the operators;
-  // loop over each of the operators
+  let operators = document.querySelectorAll('.operator');
+
+// loop over each of the operators
+  operators.forEach(op => {
+    op.addEventListener('click', e => {
+      op.value = e.target.value;
+      console.log('operator clicked', e);
+      clickOperator(e);
+    })
+  })
   // add a click event listener to each operator to call the function clickOperator and pass in the click event
 
   // add click event listener for the equal sign
+  let equalSign = document.querySelector('.equal-sign');
+  equalSign.addEventListener('click', e => {
+    equalSign.value = e.target.value;
+    performOperation(e);
+  })
   // should call the function performOperation
 
 });
