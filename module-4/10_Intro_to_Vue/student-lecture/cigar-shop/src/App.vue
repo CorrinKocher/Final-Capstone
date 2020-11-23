@@ -1,25 +1,25 @@
 <template>
   <div id="app">
-    <firstName />
-    <user-list></user-list>
+    <h1>Hello Vue.js</h1>
+    <p> Welcome! </p>
+    <product-review />
   </div>
 </template>
 
 <script>
-import UserList from "./components/UserList.vue";
+import ProductReview from './components/ProduceReview.vue'
 
 export default {
-  name: "app",
+  name: 'App',
   components: {
-    UserList
+  ProductReview
   }
-};
+}
 </script>
 
-<!-- REMOVE
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -27,4 +27,3 @@ export default {
   margin-top: 60px;
 }
 </style>
--->
