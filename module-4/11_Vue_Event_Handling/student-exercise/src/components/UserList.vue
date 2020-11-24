@@ -52,7 +52,7 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button class="btnEnableDisable" v-on:click="flipStatus(user.id)">Enable or Disable</button>
           </td>
         </tr>
       </tbody>
@@ -64,26 +64,26 @@
       <button>Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button v-on:click="showForm = true" >Add New User</button >
 
-    <form id="frmAddNewUser">
+    <form id="frmAddNewUser" v-if="showForm">
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" />
+        <input type="text" name="firstName" v-model.trim="newUser.firstName" />
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" />
+        <input type="text" name="lastName" v-model.trim="newUser.lastName"/>
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" v-model.trim="newUser.username"/>
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" name="emailAddress" />
+        <input type="text" name="emailAddress" v-model.trim="newUser.emailAddress" />
       </div>
-      <button type="submit" class="btn save">Save User</button>
+      <button type="submit" class="btn save" v-on:click="showForm = false, addUser()" >Save User</button>
     </form>
   </div>
 </template>
@@ -91,8 +91,12 @@
 <script>
 export default {
   name: "user-list",
+ 
   data() {
     return {
+     showForm: false,
+     nextId: 6, 
+     thisUser: '',
       filter: {
         firstName: "",
         lastName: "",
@@ -106,7 +110,8 @@ export default {
         lastName: "",
         username: "",
         emailAddress: "",
-        status: "Active"
+        status: "Active",
+        
       },
       users: [
         {
@@ -160,7 +165,51 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    addUser () {
+       console.log('added new user');
+
+      this.newUser.id = this.nextId;
+      this.nextId+= 1;
+
+      this.users.unshift(this.newUser);
+      this.newUser = {
+        id: null,
+        firstName:'',
+        lastName: '',
+        username: '',
+        emailAddress: '',
+        status: '',
+      }
+      this.showForm = false;
+    },
+    flipStatus(id) {
+         
+      
+      //I get why thisUser has squigglies. because I am trying to give an object (one user in users) a name like 
+      //its a variable and its not. I dont know how to isolate THIS USER. it doesnt seem like I need the left
+      //side of the equation at all. but I also feel like I am not actually effectively doing anything with the right side
+      //Like sure, I am finding the individual user in the user array based off of the user's id. but I need to actually
+      //change the status. i dont see how find does what I want. Can I do this>>> if(this.users.find(u => u.id === id))
+      //then give it a body/scope and say this.user.status === whatever they heck i want etc. nvmd tried it, didnt work
+      //also i know its mad that I am not doing anything with thisUser. but I tried that too. called thisUser.status= and that 
+      //didnt work
+      //Leslie then said I have to include whatever I have in script in 2 places?? is that right? I added it on line 99
+      //but I cant understand why i wont need to do that. i also confirmed on the console vue thing that the objects status 
+      // is not changing
+
+    let thisUser = this.users.find(u => u.id === id); 
+      //if(this.users.find(u => u.id === id)) {
+          if(thisUser.status === 'Active') {
+        thisUser.status = 'Disabled';
+      }
+      else {
+        thisUser.status = 'Active';
+      }      
+     //}
+      
+    }    
+  },
   computed: {
     filteredList() {
       let filteredUsers = this.users;
