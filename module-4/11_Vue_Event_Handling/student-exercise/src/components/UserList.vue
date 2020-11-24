@@ -44,7 +44,7 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-on:click="actionButtondisabled(user.id)" />
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -94,9 +94,11 @@ export default {
  
   data() {
     return {
-     showForm: false,
-     nextId: 6, 
-     thisUser: '',
+    
+    selectUserID: [],
+    showForm: false,
+    nextId: 6, 
+    thisUser: '',
       filter: {
         firstName: "",
         lastName: "",
@@ -199,18 +201,28 @@ export default {
       // is not changing
 
     let thisUser = this.users.find(u => u.id === id); 
-      //if(this.users.find(u => u.id === id)) {
+      
           if(thisUser.status === 'Active') {
         thisUser.status = 'Disabled';
       }
       else {
         thisUser.status = 'Active';
       }      
-     //}
+     
       
     }    
   },
   computed: {
+    actionButtonDisabled(selectUserID, id) {
+      let thisUser = this.users.find(u => u.id === id); 
+      if( this.selectUserID.includes(thisUser)){
+        selectUserID.push(thisUser);
+      }
+      else{
+        selectUserID.pop(thisUser);
+      }
+      return this.selectUserID;
+    },
     filteredList() {
       let filteredUsers = this.users;
       if (this.filter.firstName != "") {
