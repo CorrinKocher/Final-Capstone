@@ -1,6 +1,9 @@
 <template>
   <div class="card" v-bind:class="{ read: book.read }">
-    <h2 class="book-title">{{ book.title }}</h2>
+    <h2 class="book-title">
+        <router-link v-bind:to="{name: 'book-details', params: {isbn: book.isbn}}">{{ book.title }}
+            </router-link>
+            </h2>
     <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
     <h3 class="book-author">{{ book.author }}</h3>
     <div class="button-container" v-if="! enableAdd">
@@ -12,6 +15,8 @@
 </template>
 
 <script>
+
+
 export default {
     name: 'book-card',
     props: {
@@ -19,8 +24,14 @@ export default {
         enableAdd: {
             type: Boolean,
             default: false
-        }
+        },
+        
+        
+        
     },
+    
+  
+   
     methods: {
         setRead(value) {
             this.$store.commit('SET_READ_STATUS', {book: this.book, value: value});
@@ -30,8 +41,10 @@ export default {
             delete addedBook.bestSeller;
             delete addedBook.newRelease;
             this.$store.commit('SAVE_BOOK', addedBook);
-        }
-    }
+        },
+       
+    },
+     
 }
 </script>
 

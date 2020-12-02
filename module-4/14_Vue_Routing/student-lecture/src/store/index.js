@@ -76,6 +76,17 @@ export default new Vuex.Store({
     UPDATE_FILTER(state, filter) {
       state.filter = filter;
     },
+    /*
+    MARK_READ(state,bookIsbn) {
+
+    },
+    MARK_UNREAD(state,bookIsbn) {
+      
+    },
+    SET_BOOK_IS_READ(state,payload) {
+      const= isbn = payload.isbn;
+      const isRead = payload.isRead;
+    }*/
   },
   actions: {
   },

@@ -1,9 +1,15 @@
 <template>
   <div id="app">
     <nav>
-      <a href="#TODO">Products</a>
-      <a href="#TODO">About Us</a>
+      <router-link v-bind:to="{name: 'this-is-the-way'}"> 
+        Products
+      </router-link>
+
+      <router-link v-bind:to="{name: 'this-is-the-other-way'}">
+        About Us
+      </router-link>
     </nav>
+    <router-view />
     <!-- TODO: Show the currently active route's component here -->
   </div>
 </template>
