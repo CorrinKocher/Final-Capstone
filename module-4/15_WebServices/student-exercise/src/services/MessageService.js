@@ -12,11 +12,11 @@ export default {
   newMessage(newMessage) {
     return http.post('/messages/' , newMessage);
   },
-  UpdateMessage(updatedMessage) {
+  updateMessage(id, updatedMessage) {
     return http.put('/messages/' + updatedMessage.id, updatedMessage)
   },
-  DeleteMessage(messageToDelete) {
-    return http.delete('/message/' + messageToDelete.id);
+  deleteMessage(id) {
+    return http.delete('/messages/' + id);
   }
 
 }

@@ -162,12 +162,6 @@
       "messageText": "eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at"
     },
     {
-      "id": 43,
-      "topicId": 2,
-      "title": "hioooo",
-      "messageText": "dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim"
-    },
-    {
       "id": 47,
       "topicId": 3,
       "title": "dignissim vestibulum vestibulum",
@@ -190,12 +184,6 @@
       "topicId": 3,
       "title": "eget orci vehicula condimentum curabitur",
       "messageText": "diam cras pellentesque volutpat dui maecenas tristique est et tempus semper"
-    },
-    {
-      "id": 62,
-      "topicId": 2,
-      "title": "bye",
-      "messageText": "accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus"
     },
     {
       "id": 65,
@@ -282,18 +270,6 @@
       "messageText": "morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed"
     },
     {
-      "id": 916,
-      "topicId": 2,
-      "title": "yikes!",
-      "messageText": "!!!!!"
-    },
-    {
-      "id": 265,
-      "topicId": 2,
-      "title": "sdftu",
-      "messageText": "111"
-    },
-    {
       "id": 422,
       "topicId": 2,
       "title": "yikes!",
@@ -304,18 +280,6 @@
       "topicId": 2,
       "title": "sdftu",
       "messageText": "dfghnjmk,l;."
-    },
-    {
-      "id": 863,
-      "topicId": 2,
-      "title": "yikes!",
-      "messageText": "dcfvghjkl;"
-    },
-    {
-      "id": 327,
-      "topicId": 2,
-      "title": "yikes!",
-      "messageText": "!!!!!fghjkm,l.;/"
     }
   ]
 }
