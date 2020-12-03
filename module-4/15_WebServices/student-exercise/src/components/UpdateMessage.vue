@@ -34,7 +34,19 @@ export default {
         title: this.title,
         messageText: this.messageText
       };
-      // call update in message service
+      messageService
+      .UpdateMessage(message)
+      .then(response => {
+        if(response.status === 200) {
+          this.$store.commit('UPDATE_MESSAGE', response.data)
+           if(this.$router.currentRoute.name !== 'Home'){
+
+             this.$router.push({name: 'Messages', params: {id: this.updateMessage.topicId}});
+           }
+
+        }
+
+      })
     }
   },
   created() {

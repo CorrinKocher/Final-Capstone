@@ -21,6 +21,7 @@
 
 <script>
 import QuestionCard from '../components/QuestionCard.vue';
+import questionService from '@/services/QuestionService.js';
 
 export default {
     components: {
@@ -37,8 +38,15 @@ export default {
 
             if (confirmed) {
                 // TODO: Call out to our web service and have it make the delete
-                this.$store.commit('QUESTION_DELETED', this.question);
-                this.$router.push({name: 'Questions'});
+                questionService
+                    .deleteQuestion(this.question.id)
+                    .then(response => {
+                        if(response.status === 204) {
+                            this.$store.commit('QUESTION_DELETED', this.question);
+                            this.$router.push({name: 'Questions'});
+                        }                      
+
+                    })
             }
         }
     },

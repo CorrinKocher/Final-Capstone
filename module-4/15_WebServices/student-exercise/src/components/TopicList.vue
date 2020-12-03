@@ -13,10 +13,13 @@
           <td width="80%">
             <router-link
               v-bind:to="{ name: 'Messages', params: { id: topic.id } }"
-            >{{ topic.title }}</router-link>
+              >{{ topic.title }}</router-link
+            >
           </td>
           <td>
-            <router-link :to="{ name: 'EditTopic', params: {id: topic.id} }">Edit</router-link>
+            <router-link :to="{ name: 'EditTopic', params: { id: topic.id } }"
+              >Edit</router-link
+            >
           </td>
           <td>
             <a href="#" v-on:click="deleteTopic(topic.id)">Delete</a>
@@ -34,15 +37,27 @@ export default {
   name: "topic-list",
   methods: {
     getTopics() {
-      topicService.list().then(response => {
+      topicService.list().then((response) => {
         this.$store.commit("SET_TOPICS", response.data);
       });
     },
-    deleteTopic(id) {}
+    deleteTopic(id) {
+      topicService
+      .deleteTopic(id)
+      .then((response) => {
+        if (response.status === 200) {
+         /* this.$store.commit('DELETE_TOPIC', this.topic); 
+        
+            this.$router.push({ name: "Home" });*/
+            this.getTopics();
+          
+        }
+      });
+    },
   },
   created() {
     this.getTopics();
-  }
+  },
 };
 </script>
 

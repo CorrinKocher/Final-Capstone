@@ -16,6 +16,7 @@
 
 <script>
 import messageService from "../services/MessageService";
+import TopicService from '../services/TopicService';
 
 export default {
   name: "create-message",
@@ -31,8 +32,14 @@ export default {
     };
   },
   methods: {
-    saveMessage() {
-
+    saveMessage(id) {
+      messageService.newMessage(this.message)
+      .then (response => {
+       if(response.status === 201) { 
+           this.$store.commit('UPDATE_MESSAGE', response.data);
+          this.$router.push({name: 'Messages', params: {id: this.Message.topicId}});
+        } 
+      })
     }
   }
 };

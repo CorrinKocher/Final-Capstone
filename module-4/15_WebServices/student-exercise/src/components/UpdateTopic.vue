@@ -24,7 +24,16 @@ export default {
   methods: {
     updateTopic() {
       const topic = { id: this.topicID, title: this.title };
-      // call topic service update method
+      topicService
+      .updateTopic(topic)
+       .then(response => {
+        if(response.status === 200) {
+          this.$store.commit('UPDATE_TOPIC', response.data);
+          if(this.$router.currentRoute.name !== 'Home'){
+              this.$router.push({name: 'Home'});
+          }
+        }
+      })
     }
   },
   created() {
